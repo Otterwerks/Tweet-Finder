@@ -1,4 +1,4 @@
-# TwitterApp
+# Tweet Finder
 
 A website to showcase Tweets using React and Flask.
 
