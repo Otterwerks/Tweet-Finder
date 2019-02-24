@@ -16,9 +16,15 @@ def static_site(path):
 @app.route('/api/v1/methods/search', methods=['GET'])
 def api_search():
     search_string = request.args.get('searchString')
+    search_type = request.args.get('searchType')
+    result_type = request.args.get('resultType')
+    if search_type == 'user' and search_string[0] != '@':
+        search_string = '@' + search_string
+    if not result_type:
+        result_type = 'mixed'
     url = 'https://api.twitter.com/1.1/search/tweets.json'
     headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
-    params = {'q': search_string}
+    params = {'q': search_string, 'count': 10, 'result_type': result_type}
     r = requests.get(url, headers=headers, params=params)
     results = r.json()
     return jsonify(results)
