@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 
 class Main extends Component {
   constructor(props) {
@@ -7,10 +8,13 @@ class Main extends Component {
     this.state = {
       view: "Home",
       searchString: '',
-      searchTweets: [],
+      searchType: 'content',
+      contentType: 'mixed',
+      searchResults: [],
       randomTweets: []
     }
     this.handleChange = this.handleChange.bind(this);
+    this.searchTweets = this.searchTweets.bind(this);
   }
 
   handleChange(event) {
@@ -19,15 +23,35 @@ class Main extends Component {
 
   searchTweets() {
     //use searchString to query tweets, clear searchString
+    const resource = 'api/v1/methods/search?';
+    const parameter1 = 'searchString=' + this.state.searchString;
+    const parameter2 = '&searchType=' + this.state.searchType;
+    const parameter3 = '&contentType=' + this.state.contentType;
+    const url = resource + parameter1 + parameter2 + parameter3;
+    axios.get(url)
+      .then((response) => {
+        console.log(response.data.statuses);
+        this.setState({searchResults: response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    this.setState({searchString: ''});
+
+    //console.log(this.state.searchResults);
   }
 
   randomTweets() {
     //query recent tweets from predetermined users
   }
 
+  processTweets() {
+    //
+  }
+
   currentView() {
     if (this.state.view === "Search") {
-      return <Search onChange={this.handleChange} searchTweets={this.searchTweets} value={this.state.searchString} tweets={this.state.searchTweets} />
+      return <Search onChange={this.handleChange} searchTweets={this.searchTweets} value={this.state.searchString} tweets={this.state.searchResults} />
     } else if (this.state.view === "AwesomeTweets") {
       return <AwesomeTweets tweets={this.state.randomTweets} />
     } else {
@@ -59,7 +83,7 @@ class Home extends Component {
     return(
       <div className="Home">
         <div className="Title">
-          <h1>Home</h1>
+          <h1>Homepage</h1>
         </div>
       </div>
     )
@@ -83,7 +107,6 @@ class Search extends Component {
           <button onClick={this.props.searchTweets}>Find Tweets</button>
         </div>
         <div className="SearchResults">
-          {this.props.tweets}
         </div>
       </div>
     )
