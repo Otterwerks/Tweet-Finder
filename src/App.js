@@ -14,6 +14,8 @@ class Main extends Component {
       randomTweets: []
     }
     this.handleChange = this.handleChange.bind(this);
+    this.setSearchType = this.setSearchType.bind(this);
+    this.setContentType = this.setContentType.bind(this);
     this.searchTweets = this.searchTweets.bind(this);
   }
 
@@ -21,7 +23,16 @@ class Main extends Component {
     this.setState({searchString: event.target.value});
   }
 
+  setSearchType(event) {
+    this.setState({searchType: event.target.value});
+  }
+
+  setContentType(event) {
+    this.setState({contentType: event.target.value});
+  }
+
   searchTweets() {
+    this.setState({searchResults: []});
     let resource = 'api/v1/methods/search?';
     let parameter1 = 'searchString=' + this.state.searchString;
     let parameter2 = '&searchType=' + this.state.searchType;
@@ -47,7 +58,6 @@ class Main extends Component {
         container.user = tweet.user.screen_name;
         container.time = tweet.created_at;
         container.content = tweet.text;
-        //console.log(container);
       return container;
     })
     console.log(processedTweets);
@@ -56,7 +66,16 @@ class Main extends Component {
 
   currentView() {
     if (this.state.view === "Search") {
-      return <Search onChange={this.handleChange} searchTweets={this.searchTweets} value={this.state.searchString} tweets={this.state.searchResults} />
+      return (<Search 
+                onChange={this.handleChange}
+                selectSearchType={this.setSearchType}
+                selectContentType={this.selectContentType}
+                searchTweets={this.searchTweets}
+                searchType={this.state.searchType}
+                contentType={this.state.contentType}
+                value={this.state.searchString} 
+                tweets={this.state.searchResults}
+              />)
     } else if (this.state.view === "AwesomeTweets") {
       return <AwesomeTweets tweets={this.state.randomTweets} />
     } else {
@@ -103,12 +122,16 @@ class Search extends Component {
           <h1>Search Tweets</h1>
         </div>
         <div className="Form">
-          <input
-            name="search"
-            type="text"
-            value={this.props.value}
-            onChange={this.props.onChange}
-          />
+          <input type="text" value={this.props.value} onChange={this.props.onChange}/>
+          <select value={this.props.searchType} onChange={this.props.selectSearchType}>
+            <option value="standard">Standard</option>
+            <option value="user">Username</option>
+          </select>
+          <select value={this.props.contentType} onChange={this.props.selectContentType}>
+            <option value="mixed">Standard</option>
+            <option value="popular">Popular</option>
+            <option value="recent">Recent</option>
+          </select>
           <button onClick={this.props.searchTweets}>Find Tweets</button>
         </div>
         <div className="SearchResults">
