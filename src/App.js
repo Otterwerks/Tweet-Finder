@@ -7,7 +7,7 @@ class Main extends Component {
     super(props);
     this.state = {
       view: "Home",
-      searchString: '',
+      searchString: 'nasa',
       searchType: 'content',
       contentType: 'mixed',
       searchResults: [],
@@ -22,31 +22,36 @@ class Main extends Component {
   }
 
   searchTweets() {
-    //use searchString to query tweets, clear searchString
-    const resource = 'api/v1/methods/search?';
-    const parameter1 = 'searchString=' + this.state.searchString;
-    const parameter2 = '&searchType=' + this.state.searchType;
-    const parameter3 = '&contentType=' + this.state.contentType;
-    const url = resource + parameter1 + parameter2 + parameter3;
+    let resource = 'api/v1/methods/search?';
+    let parameter1 = 'searchString=' + this.state.searchString;
+    let parameter2 = '&searchType=' + this.state.searchType;
+    let parameter3 = '&contentType=' + this.state.contentType;
+    let url = resource + parameter1 + parameter2 + parameter3;
     axios.get(url)
       .then((response) => {
-        console.log(response.data.statuses);
-        this.setState({searchResults: response.data})
+        this.setState({searchResults: this.processTweets(response.data.statuses)});
       })
       .catch(function (error) {
         console.log(error);
       })
     this.setState({searchString: ''});
-
-    //console.log(this.state.searchResults);
   }
 
   randomTweets() {
     //query recent tweets from predetermined users
   }
 
-  processTweets() {
-    //
+  processTweets(tweets) {
+    let processedTweets = tweets.map((tweet) => {
+      let container = {};
+        container.user = tweet.user.screen_name;
+        container.time = tweet.created_at;
+        container.content = tweet.text;
+        //console.log(container);
+      return container;
+    })
+    console.log(processedTweets);
+    return processedTweets;
   }
 
   currentView() {
@@ -83,7 +88,7 @@ class Home extends Component {
     return(
       <div className="Home">
         <div className="Title">
-          <h1>Homepage</h1>
+          <h1>Home</h1>
         </div>
       </div>
     )
@@ -107,6 +112,14 @@ class Search extends Component {
           <button onClick={this.props.searchTweets}>Find Tweets</button>
         </div>
         <div className="SearchResults">
+          {this.props.tweets.map(tweet => {
+            return (
+              <div className="Tweet" key={tweet.content}>
+                <h2>By {tweet.user}, on {tweet.time}</h2>
+                <h3>{tweet.content}</h3>
+              </div>
+            )
+          })}
         </div>
       </div>
     )
