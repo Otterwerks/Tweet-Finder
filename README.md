@@ -1,6 +1,8 @@
 # Tweet Finder
 
-A website to showcase Tweets using React and Flask.
+__A website to showcase Tweets using React and Flask.__
+
+View live at https://otterwerks-twitter-app.herokuapp.com 
 
 <br><br>
 
