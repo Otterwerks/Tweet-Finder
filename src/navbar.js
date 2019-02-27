@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 
 class Navbar extends Component {
+
+  generateNavigationButtons(buttonList) {
+    let navigationButtons = []
+    for (let i = 0; i < buttonList.length; i++) {
+      navigationButtons.push(<button value={buttonList[i]} onClick={this.props.pageNav}>{buttonList[i]}</button>);
+    }
+    return <div className="Navbar">{navigationButtons}</div>
+  }
+
   render() {
     return (
-      <div className="Frame">
-      <div className="Header">
-        <div className="Navbar">
-          <button value="Home" onClick={this.props.pageNav}>Home</button>
-          <button value="Search" onClick={this.props.pageNav}>Search</button>
-          <button value="AwesomeTweets" onClick={this.props.pageNav}>Awesome Tweets</button>
+      <div className="Banner">
+        <div className="Header">
+          <div className="Navbar">
+            {this.generateNavigationButtons(this.props.buttons)}
+          </div>
         </div>
       </div>
-    </div>
     )
   }
 }

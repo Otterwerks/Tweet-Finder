@@ -86,7 +86,7 @@ class Main extends Component {
                 value={this.state.searchString} 
                 tweets={this.state.searchResults}
               />)
-    } else if (this.state.view === "AwesomeTweets") {
+    } else if (this.state.view === "Awesome Tweets") {
       return <AwesomeTweets tweets={this.state.randomTweets} />
     } else {
       return <Home />
@@ -96,7 +96,7 @@ class Main extends Component {
   render() {
     return (
       <div className="Main">
-        <Navbar pageNav={this.pageNavigation}/>
+        <Navbar pageNav={this.pageNavigation} buttons={["Home", "Search", "Awesome Tweets"]}/>
         {this.currentView()}
       </div>
     )
