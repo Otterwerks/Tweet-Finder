@@ -69,7 +69,7 @@ class Main extends Component {
       return (<Search 
                 onChange={this.handleChange}
                 selectSearchType={this.setSearchType}
-                selectContentType={this.selectContentType}
+                selectContentType={this.setContentType}
                 searchTweets={this.searchTweets}
                 searchType={this.state.searchType}
                 contentType={this.state.contentType}
