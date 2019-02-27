@@ -61,6 +61,17 @@ class Main extends Component {
     //query recent tweets from predetermined users
   }
 
+  applyLink(text) { // can't get this to work, shows [object][object] in text, jsx not rendering correctly?
+    let fragments = text.split(' ').map((fragment) => {
+      if (fragment.includes("http://") || fragment.includes("https://")) {
+        return <a href={fragment}>{fragment}</a>
+      } else {
+        return fragment;
+      }
+    });
+    return <div>{fragments.join(' ')}</div>
+  }
+
   processTweets(tweets) {
     let processedTweets = tweets.map((tweet) => {
       let container = {};
