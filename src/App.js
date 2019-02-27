@@ -17,6 +17,7 @@ class Main extends Component {
     this.setSearchType = this.setSearchType.bind(this);
     this.setContentType = this.setContentType.bind(this);
     this.searchTweets = this.searchTweets.bind(this);
+    this.pageNavigation = this.pageNavigation.bind(this);
   }
 
   handleChange(event) {
@@ -29,6 +30,10 @@ class Main extends Component {
 
   setContentType(event) {
     this.setState({contentType: event.target.value});
+  }
+
+  pageNavigation(event) {
+    this.setState({view: event.target.value})
   }
 
   searchTweets() {
@@ -86,18 +91,25 @@ class Main extends Component {
   render() {
     return (
       <div className="Main">
-        <div className="Header">
-          <div className="Navbar">
-            <button onClick={() => this.setState({view: "Home"})}>Home</button>
-            <button onClick={() => this.setState({view: "Search"})}>Search</button>
-            <button onClick={() => this.setState({view: "AwesomeTweets"})}>Awesome Tweets</button>
-          </div>
-        </div>
-        <div className="View">
-          {this.currentView()}
+        <Navbar pageNav={this.pageNavigation}/>
+        {this.currentView()}
+      </div>
+    )
+  }
+}
+
+class Navbar extends Component {
+  render() {
+    return (
+      <div className="Frame">
+      <div className="Header">
+        <div className="Navbar">
+          <button value="Home" onClick={this.props.pageNav}>Home</button>
+          <button value="Search" onClick={this.props.pageNav}>Search</button>
+          <button value="AwesomeTweets" onClick={this.props.pageNav}>Awesome Tweets</button>
         </div>
       </div>
-
+    </div>
     )
   }
 }
