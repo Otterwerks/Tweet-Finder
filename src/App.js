@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from './navbar.js';
+import Home from './home.js';
+import Search from './search.js';
+import AwesomeTweets from './awesometweets.js';
 import axios from 'axios';
 
 class Main extends Component {
@@ -60,6 +64,7 @@ class Main extends Component {
   processTweets(tweets) {
     let processedTweets = tweets.map((tweet) => {
       let container = {};
+        container.key = tweet.id;
         container.user = tweet.user.screen_name;
         container.time = tweet.created_at;
         container.content = tweet.text;
@@ -93,84 +98,6 @@ class Main extends Component {
       <div className="Main">
         <Navbar pageNav={this.pageNavigation}/>
         {this.currentView()}
-      </div>
-    )
-  }
-}
-
-class Navbar extends Component {
-  render() {
-    return (
-      <div className="Frame">
-      <div className="Header">
-        <div className="Navbar">
-          <button value="Home" onClick={this.props.pageNav}>Home</button>
-          <button value="Search" onClick={this.props.pageNav}>Search</button>
-          <button value="AwesomeTweets" onClick={this.props.pageNav}>Awesome Tweets</button>
-        </div>
-      </div>
-    </div>
-    )
-  }
-}
-
-class Home extends Component {
-  render() {
-    return(
-      <div className="Home">
-        <div className="Title">
-          <h1>Home</h1>
-        </div>
-      </div>
-    )
-  }
-}
-
-class Search extends Component {
-  render() {
-    return (
-      <div className="Search">
-        <div className="Title">
-          <h1>Search Tweets</h1>
-        </div>
-        <div className="Form">
-          <input type="text" value={this.props.value} onChange={this.props.onChange}/>
-          <select value={this.props.searchType} onChange={this.props.selectSearchType}>
-            <option value="standard">Standard</option>
-            <option value="user">Username</option>
-          </select>
-          <select value={this.props.contentType} onChange={this.props.selectContentType}>
-            <option value="mixed">Standard</option>
-            <option value="popular">Popular</option>
-            <option value="recent">Recent</option>
-          </select>
-          <button onClick={this.props.searchTweets}>Find Tweets</button>
-        </div>
-        <div className="SearchResults">
-          {this.props.tweets.map(tweet => {
-            return (
-              <div className="Tweet" key={tweet.content}>
-                <h2>By {tweet.user}, on {tweet.time}</h2>
-                <h3>{tweet.content}</h3>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    )
-  }
-}
-
-class AwesomeTweets extends Component {
-  render() {
-    return (
-      <div className="AwesomeTweets">
-        <div className="Title">
-          <h1>Awesome Tweets</h1>
-        </div>
-        <div className="SearchResults">
-          {this.props.tweets}
-        </div>
       </div>
     )
   }
