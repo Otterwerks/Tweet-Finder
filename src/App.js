@@ -49,7 +49,7 @@ class Main extends Component {
     let url = resource + parameter1 + parameter2 + parameter3;
     axios.get(url)
       .then((response) => {
-        this.setState({searchResults: this.processTweets(response.data.statuses)});
+        this.setState({searchResults: this.formatTweets(this.processTweets(response.data.statuses))});
       })
       .catch(function (error) {
         console.log(error);
@@ -93,7 +93,7 @@ class Main extends Component {
       return container;
     })
     console.log(processedTweets);
-    return this.formatTweets(processedTweets);
+    return processedTweets;
   }
 
   currentView() {
