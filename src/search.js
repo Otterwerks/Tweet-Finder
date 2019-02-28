@@ -21,14 +21,7 @@ class Search extends Component {
             <button onClick={this.props.searchTweets}>Find Tweets</button>
           </div>
           <div className="SearchResults">
-            {this.props.tweets.map(tweet => {
-              return (
-                <div className="Tweet" key={tweet.key}>
-                  <h2>By {tweet.user}, on {tweet.time}</h2>
-                  <h3>{tweet.content}</h3>
-                </div>
-              )
-            })}
+            {this.props.tweets}
           </div>
         </div>
       )
