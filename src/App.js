@@ -64,12 +64,23 @@ class Main extends Component {
   applyLink(text) { // can't get this to work, shows [object][object] in text, jsx not rendering correctly?
     let fragments = text.split(' ').map((fragment) => {
       if (fragment.includes("http://") || fragment.includes("https://")) {
-        return <a href={fragment}>{fragment}</a>
+        return "<a href=" + fragment + ">" + fragment + "</a>"
       } else {
         return fragment;
       }
     });
-    return <div>{fragments.join(' ')}</div>
+    return {fragments.join(' ')}
+  }
+  
+  formatTweets(tweets) {
+    return (tweets.map(tweet => {
+      return (
+        <div className="Tweet" key={tweet.key}>
+          <h2>By {tweet.user}, on {tweet.time}</h2>
+          <h3>this.applyLink{{tweet.content}}</h3>
+        </div>
+      )
+    }))
   }
 
   processTweets(tweets) {
@@ -82,7 +93,7 @@ class Main extends Component {
       return container;
     })
     console.log(processedTweets);
-    return processedTweets;
+    return this.formatTweets(processedTweets);
   }
 
   currentView() {
