@@ -62,14 +62,14 @@ class Main extends Component {
   }
 
   applyLink(text) {
-    let fragments = text.split(' ').map((fragment) => {
+    let fragments = text.split(' ').map(fragment => {
       if (fragment.includes("http://") || fragment.includes("https://")) {
-        return ("<a href=" + fragment + ">" + fragment + "</a>")
+        return <a href={"\"" + fragment + "\""}>{fragment}</a>;
       } else {
         return fragment;
       }
     });
-    return fragments.join(' ')
+    return fragments.join(' ');
   }
   
   formatTweets(tweets) {
@@ -77,20 +77,14 @@ class Main extends Component {
       return (
         <div className="Tweet" key={tweet.key}>
           <h2>By {tweet.user}, on {tweet.time}</h2>
-          <h3>{tweet.content.split(' ').map(fragment => {
-            if (fragment.includes("http://") || fragment.includes("https://")) {
-              return ("<a href=" + fragment + ">" + fragment + "</a>")
-            } else {
-              return fragment;
-            }
-            }).join(' ')}</h3>
+          <h3>{this.applyLink(tweet.content)}</h3>
         </div>
       )
     }))
   }
 
   processTweets(tweets) {
-    let processedTweets = tweets.map((tweet) => {
+    let processedTweets = tweets.map(tweet => {
       let container = {};
         container.key = tweet.id;
         container.user = tweet.user.screen_name;
