@@ -64,12 +64,12 @@ class Main extends Component {
   applyLink(text) {
     let fragments = text.split(' ').map(fragment => {
       if (fragment.includes("http://") || fragment.includes("https://")) {
-        return <a href={"\"" + fragment + "\""}>{fragment}</a>;
+        return <a href={fragment}>{fragment}</a>;
       } else {
         return fragment;
       }
     });
-    return fragments.join(' ');
+    return fragments.reduce((word, x) => word.concat(x, ' '), [0]);
   }
   
   formatTweets(tweets) {
