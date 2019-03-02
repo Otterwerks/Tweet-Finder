@@ -15,7 +15,7 @@ class App extends Component {
       searchType: 'content',
       contentType: 'mixed',
       searchResults: [],
-      randomTweets: []
+      awesomeTweets: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.setSearchType = this.setSearchType.bind(this);
@@ -23,6 +23,7 @@ class App extends Component {
     this.searchTweets = this.searchTweets.bind(this);
     this.pageNavigation = this.pageNavigation.bind(this);
     this.formatTweets = this.formatTweets.bind(this);
+    this.awesomeTweets = this.awesomeTweets.bind(this);
   }
 
   handleChange(event) {
@@ -58,12 +59,12 @@ class App extends Component {
     this.setState({searchString: ''});
   }
 
-  randomTweets() {
+  awesomeTweets() {
     //query recent tweets from predetermined users
     let url = 'api/v1/methods/showcase';
     axios.get(url)
       .then((response) => {
-        this.setState({awesomeTweets: response.data})
+        this.setState({awesomeTweets: [response.data]})
       })
       .catch(function (error) {
         console.log(error);
@@ -78,7 +79,7 @@ class App extends Component {
         return fragment;
       }
     });
-    return fragments.reduce((words, word) => words.concat(word, ' '), [0]);
+    return fragments.reduce((words, word) => words.concat(word, ' '), [""]);
   }
   
   formatTweets(tweets) {
@@ -103,10 +104,14 @@ class App extends Component {
                 contentType={this.state.contentType}
                 value={this.state.searchString} 
                 tweets={this.state.searchResults}
-                listTweets={this.formatTweets}
+                formatTweet={this.formatTweets}
               />)
     } else if (this.state.view === "Awesome Tweets") {
-      return <AwesomeTweets tweets={this.state.randomTweets} />
+      return <AwesomeTweets 
+                tweet={this.state.awesomeTweets}
+                getTweet={this.awesomeTweets}
+                formatTweet={this.formatTweets}
+              />
     } else {
       return <Home />
     }

@@ -1,5 +1,7 @@
 import os
 import requests
+import random
+import json
 from key import key
 from flask import Flask, send_from_directory, request, jsonify
 
@@ -18,8 +20,8 @@ def api_search():
     search_string = request.args.get('searchString')
     search_type = request.args.get('searchType')
     result_type = request.args.get('resultType')
-    if search_type == 'user' and search_string[0] != '@':
-        search_string = '@' + search_string
+    if search_type == 'user' and search_string[0] != 'from:':
+        search_string = 'from:' + search_string
     if not result_type:
         result_type = 'mixed'
     url = 'https://api.twitter.com/1.1/search/tweets.json'
@@ -31,8 +33,17 @@ def api_search():
 
 @app.route('/api/v1/methods/showcase', methods=['GET'])
 def api_showcase():
-    results = "showcase"
-    return results
+    users = ["from:jabrils_", "from:Raspberry_Pi", "from:MarkKnopfler", "from:mightycarmods", "from:aantonop"]
+    index = random.randint(0, len(users) - 1)
+    print(index)
+    user = users[index]
+    url = 'https://api.twitter.com/1.1/search/tweets.json'
+    headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
+    params = {'q': user}
+    r = requests.get(url, headers=headers, params=params)
+    results = r.json()["statuses"]
+    result = results[random.randint(0, len(results) - 1)]
+    return jsonify(result)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="443")

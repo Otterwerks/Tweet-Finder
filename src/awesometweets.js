@@ -7,8 +7,11 @@ class AwesomeTweets extends Component {
           <div className="Title">
             <h1>Awesome Tweets</h1>
           </div>
+          <div>
+            <button onClick={this.props.getTweet}>Listen to the chirping</button>
+          </div>
           <div className="SearchResults">
-            {this.props.tweets}
+            {this.props.formatTweet(this.props.tweet)}
           </div>
         </div>
       )

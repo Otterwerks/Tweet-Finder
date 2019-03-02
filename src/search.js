@@ -21,7 +21,7 @@ class Search extends Component {
             <button onClick={this.props.searchTweets}>Find Tweets</button>
           </div>
           <div className="SearchResults">
-            {this.props.listTweets(this.props.tweets)}
+            {this.props.formatTweet(this.props.tweets)}
           </div>
         </div>
       )
