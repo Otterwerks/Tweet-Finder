@@ -7,17 +7,13 @@ class Navbar extends Component {
     for (let i = 0; i < buttonList.length; i++) {
       navigationButtons.push(<button value={buttonList[i]} onClick={this.props.pageNav}>{buttonList[i]}</button>);
     }
-    return <div className="Navbar">{navigationButtons}</div>
+    return navigationButtons;
   }
 
   render() {
     return (
-      <div className="Banner">
-        <div className="Header">
-          <div className="Navbar">
+      <div className="navBar">
             {this.generateNavigationButtons(this.props.buttons)}
-          </div>
-        </div>
       </div>
     )
   }

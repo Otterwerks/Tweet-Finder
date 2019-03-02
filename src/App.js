@@ -85,7 +85,7 @@ class App extends Component {
   formatTweets(tweets) {
     return (tweets.map(tweet => {
       return (
-        <div className="Tweet" key={tweet.id}>
+        <div className="tweet" key={tweet.id}>
           <h2>By {tweet.user.screen_name}, on {tweet.created_at}</h2>
           <h3>{this.applyLink(tweet.text)}</h3>
         </div>
@@ -120,8 +120,21 @@ class App extends Component {
   render() {
     return (
       <div className="Main">
-        <Navbar pageNav={this.pageNavigation} buttons={["Home", "Search", "Awesome Tweets"]}/>
-        {this.currentView()}
+        <div className="row">
+          <div className="col-8">
+            <div className="header">
+              <h1>Header Text</h1>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-1">
+            <Navbar pageNav={this.pageNavigation} buttons={["Home", "Search", "Awesome Tweets"]}/>
+          </div>
+          <div className="col-7">
+            {this.currentView()}
+          </div>
+        </div>
       </div>
     )
   }

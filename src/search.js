@@ -21,7 +21,7 @@ class Search extends Component {
               </select>
               <button onClick={this.props.searchTweets}>Find Tweets</button>
             </div>
-            <div className="SearchResults">
+            <div className="tweets">
               {this.props.formatTweet(this.props.tweets)}
             </div>
           </div>
