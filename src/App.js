@@ -6,7 +6,7 @@ import Search from './search.js';
 import AwesomeTweets from './awesometweets.js';
 import axios from 'axios';
 
-class Main extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +22,7 @@ class Main extends Component {
     this.setContentType = this.setContentType.bind(this);
     this.searchTweets = this.searchTweets.bind(this);
     this.pageNavigation = this.pageNavigation.bind(this);
+    this.formatTweets = this.formatTweets.bind(this);
   }
 
   handleChange(event) {
@@ -49,7 +50,7 @@ class Main extends Component {
     let url = resource + parameter1 + parameter2 + parameter3;
     axios.get(url)
       .then((response) => {
-        this.setState({searchResults: this.formatTweets(this.processTweets(response.data.statuses))});
+        this.setState({searchResults: response.data.statuses});
       })
       .catch(function (error) {
         console.log(error);
@@ -59,6 +60,14 @@ class Main extends Component {
 
   randomTweets() {
     //query recent tweets from predetermined users
+    let url = 'api/v1/methods/showcase';
+    axios.get(url)
+      .then((response) => {
+        this.setState({awesomeTweets: response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
 
   applyLink(text) {
@@ -69,31 +78,18 @@ class Main extends Component {
         return fragment;
       }
     });
-    return fragments.reduce((word, x) => word.concat(x, ' '), [0]);
+    return fragments.reduce((words, word) => words.concat(word, ' '), [0]);
   }
   
   formatTweets(tweets) {
     return (tweets.map(tweet => {
       return (
-        <div className="Tweet" key={tweet.key}>
-          <h2>By {tweet.user}, on {tweet.time}</h2>
-          <h3>{this.applyLink(tweet.content)}</h3>
+        <div className="Tweet" key={tweet.id}>
+          <h2>By {tweet.user.screen_name}, on {tweet.created_at}</h2>
+          <h3>{this.applyLink(tweet.text)}</h3>
         </div>
       )
     }))
-  }
-
-  processTweets(tweets) {
-    let processedTweets = tweets.map(tweet => {
-      let container = {};
-        container.key = tweet.id;
-        container.user = tweet.user.screen_name;
-        container.time = tweet.created_at;
-        container.content = tweet.text;
-      return container;
-    })
-    console.log(processedTweets);
-    return processedTweets;
   }
 
   currentView() {
@@ -107,6 +103,7 @@ class Main extends Component {
                 contentType={this.state.contentType}
                 value={this.state.searchString} 
                 tweets={this.state.searchResults}
+                listTweets={this.formatTweets}
               />)
     } else if (this.state.view === "Awesome Tweets") {
       return <AwesomeTweets tweets={this.state.randomTweets} />
@@ -125,4 +122,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default App;
