@@ -20,6 +20,8 @@ def api_search():
     search_string = request.args.get('searchString')
     search_type = request.args.get('searchType')
     result_type = request.args.get('resultType')
+    if search_string == "":
+        search_string = "how does twitter work"
     if search_type == 'user' and search_string[0] != 'from:': #need to fix with regex
         search_string = 'from:' + search_string
     if not result_type:

@@ -44,19 +44,21 @@ class App extends Component {
 
   searchTweets() {
     this.setState({searchResults: []});
-    let resource = 'api/v1/methods/search?';
-    let parameter1 = 'searchString=' + this.state.searchString;
-    let parameter2 = '&searchType=' + this.state.searchType;
-    let parameter3 = '&contentType=' + this.state.contentType;
-    let url = resource + parameter1 + parameter2 + parameter3;
-    axios.get(url)
-      .then((response) => {
-        this.setState({searchResults: response.data.statuses});
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-    this.setState({searchString: ''});
+    if (this.state.searchString != '') {
+      let resource = 'api/v1/methods/search?';
+      let parameter1 = 'searchString=' + this.state.searchString;
+      let parameter2 = '&searchType=' + this.state.searchType;
+      let parameter3 = '&contentType=' + this.state.contentType;
+      let url = resource + parameter1 + parameter2 + parameter3;
+      axios.get(url)
+        .then((response) => {
+          this.setState({searchResults: response.data.statuses});
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      this.setState({searchString: ''});
+    }
   }
 
   awesomeTweets() {
