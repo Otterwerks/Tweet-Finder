@@ -60,7 +60,6 @@ class App extends Component {
   }
 
   awesomeTweets() {
-    //query recent tweets from predetermined users
     let url = 'api/v1/methods/showcase';
     axios.get(url)
       .then((response) => {
@@ -86,8 +85,17 @@ class App extends Component {
     return (tweets.map(tweet => {
       return (
         <div className="tweet" key={tweet.id}>
-          <h2>By {tweet.user.screen_name}, on {tweet.created_at}</h2>
-          <h3>{this.applyLink(tweet.text)}</h3>
+          <div className="tweetBorder">
+            <div className="tweetHeader">
+              <h2>By {tweet.user.screen_name}, on {tweet.created_at}</h2>
+            </div>
+            <div className="tweetBody">
+              <p className="tweetText">{this.applyLink(tweet.text)}</p>
+            </div>
+            <div className="tweetFooter">
+              
+            </div>
+          </div>
         </div>
       )
     }))

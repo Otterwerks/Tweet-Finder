@@ -30,3 +30,28 @@
   display: table;
 }
 
+h1 {padding: 5px;}
+h2 {padding: 5px;}
+h3 {padding: 5px;}
+
+.tweet {padding: 15px;}
+
+.tweetBorder {
+  padding: 10px;
+  border: 5px solid steelblue;
+  border-radius: 5px 25px 25px;
+}
+
+.tweetHeader {
+  padding: 5px;
+  border: 3px solid steelblue;
+  border-radius: 5px 25px 10px 10px;
+}
+
+.tweetBody {
+  padding: 3px;
+}
+
+.tweetFooter {
+  padding: 3px;
+}
