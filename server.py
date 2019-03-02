@@ -20,7 +20,7 @@ def api_search():
     search_string = request.args.get('searchString')
     search_type = request.args.get('searchType')
     result_type = request.args.get('resultType')
-    if search_type == 'user' and search_string[0] != 'from:':
+    if search_type == 'user' and search_string[0] != 'from:': #need to fix with regex
         search_string = 'from:' + search_string
     if not result_type:
         result_type = 'mixed'
@@ -35,7 +35,6 @@ def api_search():
 def api_showcase():
     users = ["from:jabrils_", "from:Raspberry_Pi", "from:MarkKnopfler", "from:mightycarmods", "from:aantonop"]
     index = random.randint(0, len(users) - 1)
-    print(index)
     user = users[index]
     url = 'https://api.twitter.com/1.1/search/tweets.json'
     headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
