@@ -7,7 +7,7 @@ class Search extends Component {
           <div className="row">
             <div className="col-8">
               <div className="subHeader">
-                <h1>Search Tweets</h1>
+                <h2>Search Tweets</h2>
               </div>
             </div>
           </div>

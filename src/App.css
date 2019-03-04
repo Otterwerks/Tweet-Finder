@@ -1,5 +1,21 @@
+:root {
+  --color-one: #b3b3b3e0;
+  --color-two: #3D2E20;
+  --color-three: rgb(153, 115, 189);
+  --color-four: #D9CFC1;
+  --color-five: rgb(219, 219, 219);
+}
+
 [class*="col-"] {
   width: 100%;
+}
+
+html, body, .main {
+  height:100%;
+}
+
+body {
+  background-color: var(--color-one);
 }
 
 @media only screen and (min-width: 768px) {
@@ -12,6 +28,8 @@
   .col-7 {width: 87.5%;}
   .col-8 {width: 100%;}
   .navButton {width: 100%;}
+  .main {min-height: 75vh;}
+  .desktopBorder {border-left: 5px solid var(--color-four);}
 }
 
 * {
@@ -21,7 +39,6 @@
 [class*="col-"] {
   float: left;
   padding: 15px;
-  border: 1px solid steelblue;
 }
 
 .row::after {
@@ -30,21 +47,59 @@
   display: table;
 }
 
-h1 {padding: 5px;}
-h2 {padding: 5px;}
-h3 {padding: 5px;}
+h1 {
+  padding: 0px 10px;
+  color: var(--color-three);
+  font-size: 5vh;
+  vertical-align: text-top;
+  text-align: center;
+}
+h2 {
+  padding: 5px;
+  color: var(--color-three);
+  font-size: 4vh;
+}
+h3 {
+  padding: 0px 5px;
+  color: var(--color-two);
+}
 
-.tweet {padding: 15px;}
+.tweet {
+  padding: 15px;
+}
+
+.border {
+  border: 5px solid var(--color-four);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.navButton {
+  height: 10vh;
+  font-size: 3vh;
+  color: var(--color-two);
+  background-color: var(--color-three);
+  border: 2px solid var(--color-two);
+  margin: 1vh 0vh;
+}
+
+.navButton:hover {
+  color: var(--color-three);
+  background-color: var(--color-two);
+}
 
 .tweetBorder {
   padding: 10px;
-  border: 5px solid steelblue;
+  border: 5px solid var(--color-two);
   border-radius: 5px 25px 25px;
+  background-color: var(--color-four)
 }
 
 .tweetHeader {
   padding: 5px;
-  border: 3px solid steelblue;
+  border: 3px solid var(--color-two);
   border-radius: 5px 25px 10px 10px;
 }
 
@@ -54,4 +109,54 @@ h3 {padding: 5px;}
 
 .tweetFooter {
   padding: 3px;
+}
+
+.textBox {
+  padding: 0px 15px;
+  font-family: Helvetica, sans-serif;
+}
+
+.textBox.large {
+  font-size: 6vh;
+}
+
+.textBox.medium {
+  font-size: 3vh;
+}
+
+.colorOne {
+  color: var(--color-one);
+}
+
+.colorTwo {
+  color: var(--color-two);
+}
+
+.colorThree {
+  color: var(--color-three);
+}
+
+.colorFour {
+  color: var(--color-four);
+}
+
+.colorFive {
+  color: var(--color-five);
+}
+
+
+#splash {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("splash.jpeg");
+  background-origin: border-box;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  min-height: 75vh;
+}
+
+.no-padding {
+  padding: 0px;
 }
