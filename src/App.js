@@ -131,7 +131,7 @@ class App extends Component {
     return (
       <div className="Main border">
         <div className="row">
-          <div className="col-8 border">
+          <div className="col-8">
             <h1 className="bold">Tweet Finder</h1>
           </div>
         </div>

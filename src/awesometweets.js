@@ -5,15 +5,15 @@ class AwesomeTweets extends Component {
     if (this.props.tweet[0]) {
       switch (this.props.tweet[0].user.screen_name) {
         case "jabrils_":
-          return "Jabrils: He has some really cool videos up on this Youtube channel, I found him because I have a Tello drone and was researching projects for it. One of his projects was to program it to track faces using machine learning, bookmarked for my to-do list!";
+          return <p><strong>Jabrils:</strong> He has some really cool videos up on this Youtube channel, I found him because I have a Tello drone and was researching projects for it. One of his projects was to program it to track faces using machine learning, bookmarked for my to-do list!</p>;
         case "Raspberry_Pi":
-          return "Raspberry Pi: I started playing with Pis a couple years ago. The first thing I did was \'upgrade\' a toy catapult I had with pan/tilt servos and a couple solenoids to fire it, all controlled through a Pi using a touchscreen interface I programmed.";
+          return <p><strong>Raspberry Pi:</strong> I started playing with Pis a couple years ago. The first thing I did was \'upgrade\' a toy catapult I had with pan/tilt servos and a couple solenoids to fire it, all controlled through a Pi using a touchscreen interface I programmed.</p>;
         case "MarkKnopfler":
-          return "Mark Knopfler: A very talented guitarist who I grew up listening to, he just released a new album too!";
+          return <p><strong>Mark Knopfler:</strong> A very talented guitarist who I grew up listening to, he just released a new album too!</p>;
         case "mightycarmods":
-          return "Might Car Mods: These guys can be goofy but they gave me the confidence to start working on my car. I'm a big fan of their early videos on Youtube.";
+          return <p><strong>Might Car Mods:</strong> These guys can be goofy but they gave me the confidence to start working on my car. I'm a big fan of their early videos on Youtube.</p>;
         case "aantonop":
-          return "Andreas Antonopoulos: You've probably heard of Bitcoin but maybe you haven't heard of Andreas. If you are interested to learn more about cryptocurrency, this guy is my go-to source of well explained and unbiased knowledge.";
+          return <p><strong>Andreas Antonopoulos:</strong> You've probably heard of Bitcoin but maybe you haven't heard of Andreas. If you are interested to learn more about cryptocurrency, this guy is my go-to source of well explained and unbiased knowledge.</p>;
         default:
           return "I don't know anything about this account, how did it get here?";
       }
@@ -41,7 +41,7 @@ class AwesomeTweets extends Component {
           </div>
           <div className="row">
             <div className="col-3">
-              <div className="textBox medium colorTwo">
+              <div className="textBox medium black">
                 <p>{this.showDescription()}</p>
               </div>
             </div>

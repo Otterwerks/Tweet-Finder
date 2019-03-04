@@ -1,9 +1,11 @@
 :root {
-  --color-one: #b3b3b3e0;
-  --color-two: #3D2E20;
-  --color-three: rgb(153, 115, 189);
-  --color-four: #D9CFC1;
-  --color-five: rgb(219, 219, 219);
+  --color-primary: rgb(29, 161, 242);
+  --color-black: rgb(20, 23, 26);
+  --color-dark-gray: rgb(101, 119, 134);
+  --color-light-gray: rgb(170, 184, 194);
+  --color-extra-light-gray: rgb(225, 232, 237);
+  --color-extra-extra-light-gray: rgb(245, 248, 250);
+  --color-white: rgb(255, 255, 255);
 }
 
 [class*="col-"] {
@@ -15,7 +17,7 @@ html, body, .main {
 }
 
 body {
-  background-color: var(--color-one);
+  background-color: var(--color-extra-light-gray);
 }
 
 @media only screen and (min-width: 768px) {
@@ -29,7 +31,6 @@ body {
   .col-8 {width: 100%;}
   .navButton {width: 100%;}
   .main {min-height: 75vh;}
-  .desktopBorder {border-left: 5px solid var(--color-four);}
 }
 
 * {
@@ -49,19 +50,19 @@ body {
 
 h1 {
   padding: 0px 10px;
-  color: var(--color-three);
+  color: var(--color-primary);
   font-size: 5vh;
   vertical-align: text-top;
   text-align: center;
 }
 h2 {
   padding: 5px;
-  color: var(--color-three);
+  color: var(--color-extra-extra-light-gray);
   font-size: 4vh;
 }
 h3 {
   padding: 0px 5px;
-  color: var(--color-two);
+  color: var(--color-dark-gray);
 }
 
 .tweet {
@@ -69,7 +70,7 @@ h3 {
 }
 
 .border {
-  border: 5px solid var(--color-four);
+  border: 5px solid var(--color-light-gray);
 }
 
 .bold {
@@ -79,27 +80,30 @@ h3 {
 .navButton {
   height: 10vh;
   font-size: 3vh;
-  color: var(--color-two);
-  background-color: var(--color-three);
-  border: 2px solid var(--color-two);
-  margin: 1vh 0vh;
+  color: var(--color-primary);
+  background-color: var(--color-extra-light-gray);
+  border: 2px solid var(--color-dark-gray);
+  border-radius: 5px;
+  margin: 1vh 1vh;
+  align-content: stretch;
+  justify-content: center;
 }
 
 .navButton:hover {
-  color: var(--color-three);
-  background-color: var(--color-two);
+  color: var(--color-black);
+  background-color: var(--color-extra-extra-light-gray);
 }
 
 .tweetBorder {
   padding: 10px;
-  border: 5px solid var(--color-two);
+  border: 5px solid var(--color-dark-gray);
   border-radius: 5px 25px 25px;
-  background-color: var(--color-four)
+  background-color: var(--color-extra-extra-light-gray)
 }
 
 .tweetHeader {
   padding: 5px;
-  border: 3px solid var(--color-two);
+  border: 3px solid var(--color-dark-gray);
   border-radius: 5px 25px 10px 10px;
 }
 
@@ -124,26 +128,33 @@ h3 {
   font-size: 3vh;
 }
 
-.colorOne {
-  color: var(--color-one);
+.primary {
+  color: var(--color-primary);
 }
 
-.colorTwo {
-  color: var(--color-two);
+.black {
+  color: var(--color-black);
 }
 
-.colorThree {
-  color: var(--color-three);
+.dark-gray {
+  color: var(--color-dark-gray);
 }
 
-.colorFour {
-  color: var(--color-four);
+.light-gray {
+  color: var(--color-light-gray);
 }
 
-.colorFive {
-  color: var(--color-five);
+.extra-light-gray {
+  color: var(--color-extra-light-gray);
 }
 
+.extra-extra-light-gray {
+  color: var(--color-extra-extra-light-gray);
+}
+
+.white {
+  color: var(--color-white);
+}
 
 #splash {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("splash.jpeg");
@@ -155,6 +166,10 @@ h3 {
   background-repeat: no-repeat;
   background-position: center top;
   min-height: 75vh;
+}
+
+#page {
+  background-color: var(--color-light-gray);
 }
 
 .no-padding {
