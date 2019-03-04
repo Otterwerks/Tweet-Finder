@@ -50,14 +50,12 @@ body {
 
 h1 {
   padding: 0px 10px;
-  color: var(--color-primary);
   font-size: 5vh;
   vertical-align: text-top;
   text-align: center;
 }
 h2 {
   padding: 5px;
-  color: var(--color-extra-extra-light-gray);
   font-size: 4vh;
 }
 h3 {

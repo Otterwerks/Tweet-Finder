@@ -132,7 +132,7 @@ class App extends Component {
       <div className="Main border">
         <div className="row">
           <div className="col-8">
-            <h1 className="bold">Tweet Finder</h1>
+            <h1 className="bold primary">Tweet Finder</h1>
           </div>
         </div>
         <div className="row" id={this.state.view === "Home" ? "splash" : "page"}>
