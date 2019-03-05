@@ -8,13 +8,28 @@
   --color-white: rgb(255, 255, 255);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 [class*="col-"] {
   width: 100%;
 }
 
-html, body, .main {
-  height:100%;
+.col-3.title {
+  width: 37.5%;
 }
+
+.col-5.title {
+  width: 62.5%;
+}
+
+html, body, .main {
+  margin: 0px;
+  padding: 0px;
+}
+
+.main {min-height: 100vh;}
 
 body {
   background-color: var(--color-primary);
@@ -35,23 +50,6 @@ body {
   src: local('Helvetica 75 Bold'), url('HelveticaNeue-Bold.woff') format('woff');
 }
 
-@media only screen and (min-width: 768px) {
-  .col-1 {width: 12.5%;}
-  .col-2 {width: 25%;}
-  .col-3 {width: 37.5%;}
-  .col-4 {width: 50%;}
-  .col-5 {width: 62.5%;}
-  .col-6 {width: 75%;}
-  .col-7 {width: 87.5%;}
-  .col-8 {width: 100%;}
-  .navButton {}
-  .main {min-height: 80vh;}
-}
-
-* {
-  box-sizing: border-box;
-}
-
 [class*="col-"] {
   float: left;
   padding: 15px;
@@ -64,16 +62,19 @@ body {
 }
 
 h1 {
-  padding: 2vw 2vw;
+  padding: 2vw;
   margin: 0px;
   font-size: 7vw;
   text-align: right;
   font-family: 'Helvetica Neue 75 Bold', Helvetica;
 }
+
 h2 {
-  padding: 5px;
-  font-size: 4vh;
+  padding: 2vw;
+  margin: 0px;
+  font-size: 4vw;
 }
+
 h3 {
   padding: 0px 5px;
   color: var(--color-dark-gray);
@@ -125,26 +126,27 @@ h3 {
 .navBar {
   align: center;
   background-color: var(--color-light-gray);
-  border: 5px solid var(--color-dark-gray);
-  border-radius: 10px;
+  border: 0.5vmin solid var(--color-dark-gray);
+  border-radius: 1.5vmin;
+  padding: 1vmin
 }
 
 .navButton {
-  height: 10vw;
-  width: 20vw;
+  height: 10vmin;
+  width: 20vmin;
   color: var(--color-primary);
-  font-size: 3.5vw;
+  font-size: 3.5vmin;
   background-color: var(--color-extra-extra-light-gray);
-  border: 5px solid var(--color-dark-gray);
-  border-radius: 10px;
-  margin: 1vh 1vw;
+  border: 0.5vmin solid var(--color-dark-gray);
+  border-radius: 1.5vmin;
+  margin: 1vmin 1vmin;
   align: center;
 }
 
 .navButton:hover {
   color: var(--color-white);
   background-color: var(--color-primary);
-  font-size: 3.75vw;
+  font-size: 3.75vmin;
   font-style: italic;
 
 }
@@ -228,4 +230,16 @@ h3 {
 
 .no-padding {
   padding: 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  .col-1 {width: 12.5%;}
+  .col-2 {width: 25%;}
+  .col-3 {width: 37.5%;}
+  .col-4 {width: 50%;}
+  .col-5 {width: 62.5%;}
+  .col-6 {width: 75%;}
+  .col-7 {width: 87.5%;}
+  .col-8 {width: 100%;}
+  .navBar {width: 25vmin;}
 }
