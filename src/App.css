@@ -124,6 +124,9 @@ h3 {
 
 .navBar {
   align: center;
+  background-color: var(--color-light-gray);
+  border: 5px solid var(--color-dark-gray);
+  border-radius: 10px;
 }
 
 .navButton {
