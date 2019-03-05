@@ -17,7 +17,22 @@ html, body, .main {
 }
 
 body {
-  background-color: var(--color-extra-light-gray);
+  background-color: var(--color-primary);
+  font-family: 'Helvetica Neue 55 Roman', Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+@font-face {
+  font-family: 'Helvetica Neue 55 Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Helvetica 55 Roman'), url('HelveticaNeue-Roman.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue 75 Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Helvetica 75 Bold'), url('HelveticaNeue-Bold.woff') format('woff');
 }
 
 @media only screen and (min-width: 768px) {
@@ -29,8 +44,8 @@ body {
   .col-6 {width: 75%;}
   .col-7 {width: 87.5%;}
   .col-8 {width: 100%;}
-  .navButton {width: 100%;}
-  .main {min-height: 75vh;}
+  .navButton {}
+  .main {min-height: 80vh;}
 }
 
 * {
@@ -49,10 +64,11 @@ body {
 }
 
 h1 {
-  padding: 0px 10px;
-  font-size: 5vh;
-  vertical-align: text-top;
-  text-align: center;
+  padding: 2vw 2vw;
+  margin: 0px;
+  font-size: 7vw;
+  text-align: right;
+  font-family: 'Helvetica Neue 75 Bold', Helvetica;
 }
 h2 {
   padding: 5px;
@@ -71,29 +87,67 @@ h3 {
   border: 5px solid var(--color-light-gray);
 }
 
+.round-border {
+  border: 5px solid var(--color-dark-gray);
+  border-radius: 10px;
+}
+
 .bold {
-  font-weight: bold;
+  font-family: 'Helvetica Neue 75 Bold';
+}
+
+.center {
+  align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  align: right;
+  text-align: right;
+}
+
+.bottom {
+  vertical-align: text-bottom;
+}
+
+.top {
+  vertical-align: text-top;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.navBar {
+  align: center;
 }
 
 .navButton {
-  height: 10vh;
-  font-size: 3vh;
+  height: 10vw;
+  width: 20vw;
   color: var(--color-primary);
-  background-color: var(--color-extra-light-gray);
-  border: 2px solid var(--color-dark-gray);
-  border-radius: 5px;
-  margin: 1vh 1vh;
-  align-content: stretch;
-  justify-content: center;
+  font-size: 3.5vw;
+  background-color: var(--color-extra-extra-light-gray);
+  border: 5px solid var(--color-dark-gray);
+  border-radius: 10px;
+  margin: 1vh 1vw;
+  align: center;
 }
 
 .navButton:hover {
-  color: var(--color-black);
-  background-color: var(--color-extra-extra-light-gray);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  font-size: 3.75vw;
+  font-style: italic;
+
 }
 
 .tweetBorder {
-  padding: 10px;
+  padding: 5x;
   border: 5px solid var(--color-dark-gray);
   border-radius: 5px 25px 25px;
   background-color: var(--color-extra-extra-light-gray)
@@ -115,7 +169,6 @@ h3 {
 
 .textBox {
   padding: 0px 15px;
-  font-family: Helvetica, sans-serif;
 }
 
 .textBox.large {

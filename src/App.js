@@ -88,6 +88,7 @@ class App extends Component {
       return (
         <div className="tweet" key={tweet.id}>
           <div className="tweetBorder">
+          
             <div className="tweetHeader">
               <h3>By {tweet.user.screen_name}, on {tweet.created_at}</h3>
             </div>
@@ -116,7 +117,7 @@ class App extends Component {
                 tweets={this.state.searchResults}
                 formatTweet={this.formatTweets}
               />)
-    } else if (this.state.view === "Cool Tweets") {
+    } else if (this.state.view === "Favorites") {
       return <AwesomeTweets 
                 tweet={this.state.awesomeTweets}
                 getTweet={this.awesomeTweets}
@@ -129,17 +130,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="Main border">
+      <div className="Main" id="splash">
         <div className="row">
-          <div className="col-8">
-            <h1 className="bold primary">Tweet Finder</h1>
+          <div className="col-8 no-padding">
+            <h1 className="bold white">Tweet Finder</h1>
           </div>
         </div>
-        <div className="row" id={this.state.view === "Home" ? "splash" : "page"}>
-          <div className="col-1">
-            <Navbar pageNav={this.pageNavigation} buttons={["Home", "Search", "Cool Tweets", "Site Info"]}/>
+        <div className="row" id={this.state.view === "Home" ? "home" : "page"}>
+          <div className="col-2 sticky center">
+            <Navbar pageNav={this.pageNavigation} buttons={["Home", "Search", "Favorites", "Info"]}/>
           </div>
-          <div className="col-7 no-padding">
+          <div className="col-6 no-padding">
             {this.currentView()}
           </div>
         </div>

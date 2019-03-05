@@ -5,7 +5,7 @@ class Navbar extends Component {
   generateNavigationButtons(buttonList) {
     let navigationButtons = []
     for (let i = 0; i < buttonList.length; i++) {
-      navigationButtons.push(<button className="navButton" value={buttonList[i]} onClick={this.props.pageNav}>{buttonList[i]}</button>);
+      navigationButtons.push(<button className="navButton bold" value={buttonList[i]} onClick={this.props.pageNav}>{buttonList[i]}</button>);
     }
     return navigationButtons;
   }
