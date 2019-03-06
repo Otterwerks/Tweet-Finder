@@ -141,7 +141,11 @@ class App extends Component {
         </div>
         <div className="row" id={this.state.view === "Home" ? "home" : "page"}>
           <div className="col-2 sticky center">
-            <Navbar pageNav={this.pageNavigation} buttons={["Home", "Search", "Favorites", "Info"]}/>
+            <Navbar 
+              pageNav={this.pageNavigation} 
+              buttons={["Home", "Search", "Favorites", "Info"]}
+              active={this.state.view}
+            />
           </div>
           <div className="col-6 no-padding">
             {this.currentView()}

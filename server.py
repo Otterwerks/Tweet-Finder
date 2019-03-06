@@ -2,6 +2,7 @@ import os
 import requests
 import random
 import json
+import re
 from key import key
 from flask import Flask, send_from_directory, request, jsonify
 
@@ -45,6 +46,13 @@ def api_showcase():
     results = r.json()["statuses"]
     result = results[random.randint(0, len(results) - 1)]
     return jsonify(result)
+
+@app.route('/api/v1/methods/media', methods=['GET'])
+def api_media():
+    url = "https://twitter.com/NASA/status/1102652693548544002"
+    headers = {'Content-Type': 'text/html', 'Accept': 'text/html'}
+    r = requests.get(url)
+    return r.text
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="443")

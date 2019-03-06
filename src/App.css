@@ -128,7 +128,7 @@ h3 {
   background-color: var(--color-light-gray);
   border: 0.5vmin solid var(--color-dark-gray);
   border-radius: 1.5vmin;
-  padding: 1vmin
+  padding: 0.5vmin
 }
 
 .navButton {
@@ -139,8 +139,9 @@ h3 {
   background-color: var(--color-extra-extra-light-gray);
   border: 0.5vmin solid var(--color-dark-gray);
   border-radius: 1.5vmin;
-  margin: 1vmin 1vmin;
+  margin: 0.5vmin;
   align: center;
+  padding-top: 1.5vmin;
 }
 
 .navButton:hover {
@@ -148,7 +149,11 @@ h3 {
   background-color: var(--color-primary);
   font-size: 3.75vmin;
   font-style: italic;
+}
 
+.active {
+  background-color: var(--color-primary);
+  color: var(--color-extra-extra-light-gray);
 }
 
 .tweetBorder {
@@ -241,5 +246,5 @@ h3 {
   .col-6 {width: 75%;}
   .col-7 {width: 87.5%;}
   .col-8 {width: 100%;}
-  .navBar {width: 25vmin;}
+  .navBar {width: 23vmin;}
 }
