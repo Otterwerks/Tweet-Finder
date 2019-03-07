@@ -70,7 +70,7 @@ h1 {
 }
 
 h2 {
-  padding: 2vw;
+  padding-left: 2vw;
   margin: 0px;
   font-size: 4vw;
 }
@@ -80,6 +80,16 @@ h3 {
   font-size: 2.5vmin;
   color: var(--color-black);
   font-family: 'Helvetica Neue 75 Bold', Helvetica;
+}
+
+.page-title {
+  vertical-align: bottom;
+  padding-top: 2vmin;
+}
+
+.page-heading-box {
+  background-color: var(--color-white);
+  margin: 1.5vmin;
 }
 
 .tweet {
@@ -96,7 +106,7 @@ h3 {
 }
 
 .bold {
-  font-family: 'Helvetica Neue 75 Bold';
+  font-family: 'Helvetica Neue 75 Bold', Helvetica;
 }
 
 .center {
@@ -193,7 +203,7 @@ h3 {
 }
 
 #search-row {
-  padding: 2vmin;
+  padding: 0.5vmin;
 }
 
 #search-box {
@@ -330,11 +340,15 @@ select {
 }
 
 #page {
-  background-color: var(--color-white);
+  background-color: var(--color-extra-extra-light-gray);
 }
 
 .no-padding {
   padding: 0px;
+}
+
+.no-margin {
+  margin: 0px;
 }
 
 @media only screen and (min-width: 768px) {
