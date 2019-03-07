@@ -127,7 +127,7 @@ h3 {
   background-color: var(--color-light-gray);
   border: 0.5vmin solid var(--color-dark-gray);
   border-radius: 1.5vmin;
-  padding: 0.5vmin
+  padding: 0px
 }
 
 .navButton {
@@ -147,6 +147,102 @@ h3 {
   background-color: var(--color-primary);
   font-size: 3.75vmin;
   font-style: italic;
+}
+
+.input {
+  width: 100%;
+  font-size: 3vmin;
+  height: 8vmin;
+  background-color: var(--color-extra-light-gray);
+  vertical-align: center;
+  padding: 0px;
+}
+
+.dropdown-item {
+  font-size: 3vmin;
+  height: 4vmin;
+}
+
+.form-item {
+  font-size: 2.5vmin;
+  margin: 0.5vmin;
+  padding: 1vmin;
+}
+
+.form-item-text {
+  font-size: 3vmin;
+  padding: 1vmin;
+  margin: 0.5vmin;
+}
+
+.button {
+  margin: 0.5vmin;
+  color: var(--color-primary);
+  background-color: var(--color-extra-extra-light-gray);
+  border: 0.5vmin solid var(--color-dark-gray);
+  border-radius: 1vmin;
+  padding-top: 1vh;
+  width: calc(20% - 1vmin);
+  font-family: 'Helvetica Neue 75 Bold', Helvetica;
+  vertical-align: center;
+}
+
+.button:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+#search-row {
+  padding: 2vmin;
+}
+
+#search-box {
+  background-color: var(--color-light-gray);
+}
+
+#search-button {
+}
+
+#search-field {
+  width: calc(100% - 1vmin);
+}
+
+#search-type, #content-type {
+  margin: 0px;
+}
+
+.select-search {
+  padding-bottom: 2vmin;
+}
+
+.custom-select {
+
+  overflow: hidden;
+  
+}
+
+.custom-select select {
+  padding-top: 1vmin;
+}
+
+select {
+  margin: 0.5vmin;
+  padding-left: 2vw;
+  padding-top: 2vmin;
+  border: 0.5vmin solid var(--color-dark-gray);
+  border-radius: 1vmin;
+  width: calc(40% - 1vmin);
+  font-size: 2.5vmin;
+  color: var(--color-white);
+  overflow: hidden;
+  font-family: 'Helvetica Neue 75 Bold', Helvetica;
+  box-shadow: none;
+  background-color: var(--color-primary);
+  height: 6vmin;
+}
+
+.custom-select select:focus {
+  outline: none;
 }
 
 .active {
@@ -234,7 +330,7 @@ h3 {
 }
 
 #page {
-  background-color: var(--color-light-gray);
+  background-color: var(--color-white);
 }
 
 .no-padding {
@@ -250,5 +346,5 @@ h3 {
   .col-6 {width: 75%;}
   .col-7 {width: 87.5%;}
   .col-8 {width: 100%;}
-  .navBar {width: 23vmin;}
+  .navBar {width: 22vmin;}
 }
