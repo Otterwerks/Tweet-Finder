@@ -7,7 +7,9 @@ class Search extends Component {
           <div className="page-heading-box round-border">
             <div className="row">
               <div className="col-8 no-padding">
-                <h2 className="primary bold page-title">Search Tweets</h2>
+                <div className="round-border no-padding title-box">
+                  <h2 className="primary bold page-title">Search Tweets</h2>
+                </div>
               </div>
             </div>
             <div id="search-row" className="row">

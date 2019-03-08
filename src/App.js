@@ -88,7 +88,6 @@ class App extends Component {
       return (
         <div className="tweet" key={tweet.id}>
           <div className="tweetBorder">
-          
             <div className="tweetHeader">
               <h3>By {tweet.user.screen_name}, on {tweet.created_at}</h3>
             </div>
@@ -96,7 +95,6 @@ class App extends Component {
               <p className="tweetText">{this.applyLink(tweet.text)}</p>
             </div>
             <div className="tweetFooter">
-              
             </div>
           </div>
         </div>

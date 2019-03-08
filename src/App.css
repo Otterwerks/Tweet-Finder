@@ -76,7 +76,7 @@ h2 {
 }
 
 h3 {
-  padding: 0vmin 0.5vmin;
+  padding: 0vmin;
   font-size: 2.5vmin;
   color: var(--color-black);
   font-family: 'Helvetica Neue 75 Bold', Helvetica;
@@ -87,13 +87,15 @@ h3 {
   padding-top: 2vmin;
 }
 
-.page-heading-box {
+.title-box {
+  margin: 0.5vmin;
+  width: calc(100% - 1vmin);
   background-color: var(--color-white);
-  margin: 1.5vmin;
 }
 
-.tweet {
-  padding: 1.5vmin;
+.page-heading-box {
+  background-color: var(--color-extra-light-gray);
+  margin: 1.5vmin;
 }
 
 .border {
@@ -260,6 +262,10 @@ select {
   color: var(--color-extra-extra-light-gray);
 }
 
+.tweet {
+  padding: 1.5vmin;
+}
+
 .tweetBorder {
   padding: 1vmin;
   border: 0.5vmin solid var(--color-dark-gray);
@@ -268,7 +274,8 @@ select {
 }
 
 .tweetHeader {
-  padding: 0.5vmin;
+  padding: 0px;
+  padding-left: 2vmin;
   border: 0.3vmin solid var(--color-dark-gray);
   background-color: var(--color-extra-light-gray);
   border-radius: 0.5vmin 2.5vmin 1vmin 1vmin;
@@ -276,7 +283,7 @@ select {
 
 .tweetText {
   color: var(--color-black);
-  font-size: 1.75vmin;
+  font-size: 2.5vmin;
 }
 
 .tweetBody {
