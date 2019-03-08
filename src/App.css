@@ -334,6 +334,23 @@ select {
   color: var(--color-white);
 }
 
+#toTop {
+  margin: 0px;
+  position: fixed;
+  bottom: 1vmin;
+  float: right;
+  right: 0%;
+  font-size: 5vmin;
+  color: var(--color-primary);
+  border: 0.5vmin solid var(--color-light-gray);
+  background-color: var(--color-extra-light-gray);
+  border-radius: 1vmin;
+}
+
+#toTop:hover {
+  background-color: var(--color-white);
+}
+
 #splash {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("splash.jpeg");
   background-origin: border-box;

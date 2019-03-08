@@ -148,6 +148,7 @@ class App extends Component {
           <div className="col-6 no-padding">
             {this.currentView()}
           </div>
+          <button id="toTop"><a href="#top">^</a></button>
         </div>
       </div>
     )
