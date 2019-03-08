@@ -52,7 +52,7 @@ class App extends Component {
       let url = resource + parameter1 + parameter2 + parameter3;
       axios.get(url)
         .then((response) => {
-          this.setState({searchResults: response.data.statuses});
+          this.setState({searchResults: response.data});
         })
         .catch(function (error) {
           console.log(error);
@@ -65,7 +65,7 @@ class App extends Component {
     let url = 'api/v1/methods/showcase';
     axios.get(url)
       .then((response) => {
-        this.setState({awesomeTweets: [response.data]})
+        this.setState({awesomeTweets: response.data})
       })
       .catch(function (error) {
         console.log(error);
@@ -92,7 +92,7 @@ class App extends Component {
               <h3>By {tweet.user.screen_name}, on {tweet.created_at}</h3>
             </div>
             <div className="tweetBody">
-              <p className="tweetText">{this.applyLink(tweet.text)}</p>
+              <p className="tweetText">{this.applyLink(tweet.full_text)}</p>
             </div>
             <div className="tweetFooter">
             </div>

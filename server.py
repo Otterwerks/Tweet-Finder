@@ -8,6 +8,15 @@ from flask import Flask, send_from_directory, request, jsonify
 
 app = Flask(__name__, static_url_path='/build')
 
+def getExtendedTweets(id_array):
+    ids = ','.join(id_array)
+    url = 'https://api.twitter.com/1.1/statuses/lookup.json'
+    headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
+    params = {'id': ids, 'tweet_mode': 'extended'}
+    r = requests.get(url, headers=headers, params=params)
+    results = r.json()
+    return jsonify(results)
+        
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def static_site(path):
@@ -31,8 +40,10 @@ def api_search():
     headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
     params = {'q': search_string, 'count': 10, 'result_type': result_type}
     r = requests.get(url, headers=headers, params=params)
-    results = r.json()
-    return jsonify(results)
+    results_ids = []
+    for tweet in r.json()["statuses"]:
+        results_ids.append(tweet["id_str"])
+    return getExtendedTweets(results_ids)
 
 @app.route('/api/v1/methods/showcase', methods=['GET'])
 def api_showcase():
@@ -45,14 +56,10 @@ def api_showcase():
     r = requests.get(url, headers=headers, params=params)
     results = r.json()["statuses"]
     result = results[random.randint(0, len(results) - 1)]
-    return jsonify(result)
+    result_id = [result['id_str']]
+    return getExtendedTweets(result_id)
 
-@app.route('/api/v1/methods/media', methods=['GET'])
-def api_media():
-    url = "https://twitter.com/NASA/status/1102652693548544002"
-    headers = {'Content-Type': 'text/html', 'Accept': 'text/html'}
-    r = requests.get(url)
-    return r.text
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="443")
