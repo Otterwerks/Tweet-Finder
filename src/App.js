@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       view: "Home",
-      searchString: 'nasa',
+      searchString: 'from:nasa',
       searchType: 'content',
       contentType: 'mixed',
       searchResults: [],
@@ -93,6 +93,9 @@ class App extends Component {
             </div>
             <div className="tweetBody">
               <p className="tweetText">{this.applyLink(tweet.full_text)}</p>
+            </div>
+            <div className="tweetPhoto">
+              {tweet.entities.media ? <img className="embeddedPhoto" src={tweet.entities.media[0].media_url_https} /> : null}
             </div>
             <div className="tweetFooter">
             </div>
