@@ -38,7 +38,7 @@ def api_search():
         result_type = 'mixed'
     url = 'https://api.twitter.com/1.1/search/tweets.json'
     headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
-    params = {'q': search_string, 'count': 10, 'result_type': result_type}
+    params = {'q': search_string, 'lang': 'en', 'result_type': result_type}
     r = requests.get(url, headers=headers, params=params)
     results_ids = []
     for tweet in r.json()["statuses"]:
