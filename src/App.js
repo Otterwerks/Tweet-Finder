@@ -94,8 +94,8 @@ class App extends Component {
             <div className="tweetBody">
               <p className="tweetText">{this.applyLink(tweet.full_text)}</p>
             </div>
-            <div className="tweetPhoto">
-              {tweet.entities.media ? <img className="embeddedPhoto" src={tweet.entities.media[0].media_url_https} /> : null}
+            <div className="tweetMedia">
+              {tweet.extended_entities ? tweet.extended_entities.media ? tweet.extended_entities.media[0].type == "video" ? <video className="embeddedMedia" controls><source src={tweet.extended_entities.media[0].video_info.variants[3].url} type="video/mp4" /></video> : <img className="embeddedMedia" src={tweet.extended_entities.media[0].media_url_https} /> : null : null}
             </div>
             <div className="tweetFooter">
             </div>

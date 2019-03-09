@@ -266,13 +266,13 @@ select {
   padding: 1.5vmin;
 }
 
-.embeddedPhoto {
+.embeddedMedia{
   width: 100%;
   border-radius: 1vmin;
   height: auto;
 }
 
-.tweetPhoto {
+.tweetMedia {
   padding: 0px;
   width: calc(100% - 2vmin);
   margin: 1vmin;
