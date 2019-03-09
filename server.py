@@ -47,7 +47,7 @@ def api_search():
 
 @app.route('/api/v1/methods/showcase', methods=['GET'])
 def api_showcase():
-    users = ["from:jabrils_", "from:Raspberry_Pi", "from:MarkKnopfler", "from:mightycarmods", "from:aantonop"]
+    users = ["from:jabrils_", "from:Raspberry_Pi", "from:MarkKnopfler", "from:mightycarmods", "from:playhearthstone"]
     index = random.randint(0, len(users) - 1)
     user = users[index]
     url = 'https://api.twitter.com/1.1/search/tweets.json'
