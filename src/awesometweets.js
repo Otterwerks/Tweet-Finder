@@ -12,8 +12,8 @@ class AwesomeTweets extends Component {
           return <p><strong>Mark Knopfler:</strong> A very talented guitarist who I grew up listening to, he just released a new album too!</p>;
         case "mightycarmods":
           return <p><strong>Might Car Mods:</strong> These guys can be goofy but they gave me the confidence to start working on my car. I'm a big fan of their early videos on Youtube.</p>;
-        case "aantonop":
-          return <p><strong>Play Hearthstone:</strong> I have been playing Hearthstone since Beta. I don't have time to game much these days so I really appreciate the simplicity and pace of this game. Blizzard is one of my favoriate game studios.</p>;
+        case "PlayHearthstone":
+          return <p><strong>Play Hearthstone:</strong> I have been playing Hearthstone since Beta. I don't have time to game much these days so I really appreciate the simplicity and pace of this game. Blizzard is one of my favorite game studios.</p>;
         default:
           return "I don't know anything about this account, how did it get here?";
       }
