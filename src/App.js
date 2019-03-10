@@ -213,8 +213,14 @@ class App extends Component {
       <div className="Main" id="splash">
         <div id="profile-card">
           <button id="close-button" onClick={this.hideProfileCard}></button>
-          <img id="profile-card-banner" src={this.state.profile.banner} />
-          <img id="profile-card-image" src={this.state.profile.image} />
+          <div id="profile-card-panel">
+            <img id="profile-card-banner" src={this.state.profile.banner} />
+            <img id="profile-card-image" src={this.state.profile.image} />
+            <a id="view-twitter-profile-link" href={"http://twitter.com/" + this.state.profile.username} target="_blank">View profile on Twitter</a>
+            <p id="profile-card-name" className="bold">{this.state.profile.name}{this.state.profile.verified == true && <img id="profile-card-verified" src={require("./verified.png")} />}</p>
+            <p id="profile-card-username">@{this.state.profile.username}</p>
+            <p id="profile-card-description">{this.state.profile.description}</p>
+          </div>
         </div>
         <div className="row">
           <div className="col-3 title no-padding">

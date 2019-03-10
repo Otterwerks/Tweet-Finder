@@ -226,6 +226,16 @@ h3 {
   display: none;
 }
 
+#profile-card-panel {
+  position: fixed;
+  z-index: 100;
+  top: 42vh;
+  left: calc(50% - 20vh);
+  height: 48vh;
+  width: 40vh;
+  background-color: var(--color-extra-light-gray);
+}
+
 #profile-card-image {
   position: fixed;
   top: 24vh;
@@ -245,6 +255,49 @@ h3 {
   width: 40vh;
   height: 10vh;
   z-index: 110;
+}
+
+#view-twitter-profile-link {
+  color: var(--color-primary);
+  font-size: 2vh;
+  position: fixed;
+  z-index: 1000;
+  top: 30.5vh;
+  left: calc(50% - 2vh);
+}
+
+#profile-card-name {
+  position: fixed;
+  z-index: 110;
+  top: 32vh;
+  left: calc(50% - 17vh);
+  font-size: 3vh;
+  color: var(--color-black);
+}
+
+#profile-card-username {
+  position: fixed;
+  z-index: 110;
+  top: 35.75vh;
+  font-size: 2vh;
+  left: calc(50% - 16.5vh);
+  color: var(--color-dark-gray);
+}
+
+#profile-card-verified {
+  height: 2.5;
+  width: 2.5vh;
+  vertical-align: text-top;
+}
+
+#profile-card-description {
+  position: fixed;
+  z-index: 110;
+  font-size: 2vh;
+  top: 42vh;
+  width: 35vh;
+  left: calc(50% - 18vh);
+  color: var(--color-black);
 }
 
 .verified {
