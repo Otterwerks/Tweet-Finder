@@ -72,10 +72,20 @@ class App extends Component {
       })
   }
 
-  applyLink(text) {
+  getHashTags(tweet) {
+    let hashtags = [];
+    for (let i = 0; i < tweet.entities.hashtags.length; i++) {
+      hashtags.push("#" + tweet.entities.hashtags[i].text);
+    }
+    return hashtags.reduce((tags, tag) => tags.concat(tag, ' '), [""]);
+  }
+
+  textCorrection(text) {
     let fragments = text.split(' ').map(fragment => {
       if (fragment.includes("http://") || fragment.includes("https://")) {
         return <a href={fragment}>{fragment}</a>;
+      } else if (fragment == "&amp;") {
+        return "&";
       } else {
         return fragment;
       }
@@ -89,15 +99,26 @@ class App extends Component {
         <div className="tweet" key={tweet.id}>
           <div className="tweetBorder">
             <div className="tweetHeader">
-              <h3>By {tweet.user.screen_name}, on {tweet.created_at}</h3>
+                <div className="header-profile-picture no-padding">
+                  <img className="profile-picture-small" src={tweet.user.profile_image_url_https} />
+                </div>
+                <div className="header-name no-padding">
+                  <h3 className="no-padding no-margin">{tweet.user.name} <br /> <span className="user-name">@{tweet.user.screen_name}</span></h3>
+                </div>
             </div>
             <div className="tweetBody">
-              <p className="tweetText">{this.applyLink(tweet.full_text)}</p>
+              <p className="tweetText">{this.textCorrection(tweet.full_text)}</p>
             </div>
             <div className="tweetMedia">
               {tweet.extended_entities ? tweet.extended_entities.media ? tweet.extended_entities.media[0].type == "video" ? <video className="embeddedMedia" controls><source src={tweet.extended_entities.media[0].video_info.variants[3].url} type="video/mp4" /></video> : <img className="embeddedMedia" src={tweet.extended_entities.media[0].media_url_https} /> : null : null}
             </div>
             <div className="tweetFooter">
+              <div className="hash-tags">
+                <p className="bold black">{this.getHashTags(tweet)}</p>
+              </div>
+              <div className="posted-on">
+                <p>on {tweet.created_at}</p>
+              </div>
             </div>
           </div>
         </div>

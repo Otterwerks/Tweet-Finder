@@ -7,7 +7,7 @@ class AwesomeTweets extends Component {
         case "jabrils_":
           return <p><strong>Jabrils:</strong> He has some really cool videos up on his Youtube channel, I found him because I have a Tello drone and was researching projects for it. One of his projects was to program it to track faces using machine learning, bookmarked for my to-do list!</p>;
         case "Raspberry_Pi":
-          return <p><strong>Raspberry Pi:</strong> I started playing with Pis a couple years ago. The first thing I did was 'upgrade' a toy catapult I had with pan/tilt servos and a couple solenoids to fire it, all controlled through a Pi using a touchscreen interface I programmed using Kivy.</p>;
+          return <p><strong>Raspberry Pi:</strong> I started playing with Pis a couple years ago. The first thing I did was 'upgrade' a toy catapult I had with pan/tilt servos and a couple solenoids to fire it, all controlled through a Pi connected to a touchscreen interface I programmed using Kivy.</p>;
         case "MarkKnopfler":
           return <p><strong>Mark Knopfler:</strong> A very talented guitarist who I grew up listening to, he just released a new album too!</p>;
         case "mightycarmods":

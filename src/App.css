@@ -107,10 +107,6 @@ h3 {
   border-radius: 1vmin;
 }
 
-.bold {
-  font-family: 'Helvetica Neue 75 Bold', Helvetica;
-}
-
 .center {
   display: flex;
   justify-content: center;
@@ -272,6 +268,32 @@ select {
   height: auto;
 }
 
+.profile-picture-small {
+  vertical-align: middle;
+  width: 6vmin;
+  height: 6vmin;
+  border-radius: 50%;
+} 
+
+.header-profile-picture {
+  float: left;
+  width: 6vmin;
+  margin: 1vmin;
+}
+
+.header-name {
+  margin-top: 1.5vmin;
+  float: left;
+  width: calc(100% - 10vmin);
+}
+
+.user-name {
+  margin-bottom: 0.75vmin;
+  color: var(--color-dark-gray);
+  font-family: 'Helvetica Neue 55 Roman', Helvetica;
+  font-size: 2vmin;
+}
+
 .tweetMedia {
   padding: 0px;
   width: calc(100% - 2vmin);
@@ -286,6 +308,8 @@ select {
 }
 
 .tweetHeader {
+  display: table;
+  width: 100%;
   padding: 0px;
   padding-left: 2vmin;
   border: 0.3vmin solid var(--color-dark-gray);
@@ -303,7 +327,21 @@ select {
 }
 
 .tweetFooter {
+  display: table;
+  width: 100%;
   padding: 0.5vmin;
+  font-size: 2vmin;
+  color: var(--color-dark-gray);
+}
+
+.hash-tags {
+  padding-left: 4vmin;
+  float: left;
+}
+
+.posted-on {
+  padding-right: 2vmin;
+  float: right;
 }
 
 .textBox {
@@ -385,6 +423,14 @@ select {
 
 .no-margin {
   margin: 0px;
+}
+
+.bold {
+  font-family: 'Helvetica Neue 75 Bold', Helvetica;
+}
+
+.regular {
+  font-family: 'Helvetica Neue 55 Roman', Helvetica;
 }
 
 @media only screen and (min-width: 768px) {
