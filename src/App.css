@@ -198,6 +198,11 @@ h3 {
 .button:hover {
   color: var(--color-white);
   background-color: var(--color-primary);
+} 
+
+.search-hash-tag {
+  cursor: pointer; 
+  cursor: hand;
 }
 
 #search-row {
@@ -278,7 +283,7 @@ select {
 .header-profile-picture {
   float: left;
   width: 6vmin;
-  margin: 1vmin;
+  margin: 1vmin 2vmin 1vmin 0vmin;
 }
 
 .header-name {

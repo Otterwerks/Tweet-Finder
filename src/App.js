@@ -24,6 +24,7 @@ class App extends Component {
     this.pageNavigation = this.pageNavigation.bind(this);
     this.formatTweets = this.formatTweets.bind(this);
     this.awesomeTweets = this.awesomeTweets.bind(this);
+    this.searchHashTag = this.searchHashTag.bind(this);
   }
 
   handleChange(event) {
@@ -61,6 +62,23 @@ class App extends Component {
     }
   }
 
+  searchHashTag(hashTag) {
+    this.setState({searchResults: []});
+      let resource = 'api/v1/methods/search?';
+      let parameter1 = 'searchString=' + hashTag;
+      let parameter2 = '&searchType=' + this.state.searchType;
+      let parameter3 = '&contentType=' + this.state.contentType;
+      let url = resource + parameter1 + parameter2 + parameter3;
+      axios.get(url)
+        .then((response) => {
+          this.setState({searchResults: response.data});
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      this.setState({searchString: ''});
+  }
+
   awesomeTweets() {
     let url = 'api/v1/methods/showcase';
     axios.get(url)
@@ -75,7 +93,7 @@ class App extends Component {
   getHashTags(tweet) {
     let hashtags = [];
     for (let i = 0; i < tweet.entities.hashtags.length; i++) {
-      hashtags.push("#" + tweet.entities.hashtags[i].text);
+      hashtags.push(<a className="search-hash-tag" onClick={this.searchHashTag.bind(this, tweet.entities.hashtags[i].text)}>#{tweet.entities.hashtags[i].text}</a>);
     }
     return hashtags.reduce((tags, tag) => tags.concat(tag, ' '), [""]);
   }
