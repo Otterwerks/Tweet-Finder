@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       view: "Home",
-      searchString: 'from:nasa',
+      searchString: 'NA miata',
       searchType: 'content',
       contentType: 'mixed',
       searchResults: [],
@@ -24,7 +24,8 @@ class App extends Component {
     this.pageNavigation = this.pageNavigation.bind(this);
     this.formatTweets = this.formatTweets.bind(this);
     this.awesomeTweets = this.awesomeTweets.bind(this);
-    this.searchHashTag = this.searchHashTag.bind(this);
+    this.searchLink = this.searchLink.bind(this);
+    this.showProfileCard = this.showProfileCard.bind(this);
   }
 
   handleChange(event) {
@@ -58,14 +59,14 @@ class App extends Component {
         .catch(function (error) {
           console.log(error);
         })
-      this.setState({searchString: ''});
+      //this.setState({searchString: ''});
     }
   }
 
-  searchHashTag(hashTag) {
-    this.setState({searchResults: [], view: "Search"});
+  searchLink(searchItem) {
+    this.setState({searchResults: [], view: "Search", searchString: searchItem});
       let resource = 'api/v1/methods/search?';
-      let parameter1 = 'searchString=' + hashTag;
+      let parameter1 = 'searchString=' + searchItem;
       let url = resource + parameter1;
       axios.get(url)
         .then((response) => {
@@ -74,7 +75,7 @@ class App extends Component {
         .catch(function (error) {
           console.log(error);
         })
-      this.setState({searchString: ''});
+      //this.setState({searchString: ''});
   }
 
   awesomeTweets() {
@@ -88,10 +89,18 @@ class App extends Component {
       })
   }
 
+  showProfileCard(tweet) {
+    document.getElementById("profile-card").style.display = "block";
+  }
+
+  hideProfileCard() {
+    document.getElementById("profile-card").style.display = "none";
+  }
+
   getHashTags(tweet) {
     let hashtags = [];
     for (let i = 0; i < tweet.entities.hashtags.length; i++) {
-      hashtags.push(<a className="search-hash-tag" onClick={this.searchHashTag.bind(this, tweet.entities.hashtags[i].text)}>#{tweet.entities.hashtags[i].text}</a>);
+      hashtags.push(<a className="search-link" onClick={this.searchLink.bind(this, tweet.entities.hashtags[i].text)}>#{tweet.entities.hashtags[i].text}</a>);
     }
     return hashtags.reduce((tags, tag) => tags.concat(tag, ' '), [""]);
   }
@@ -108,6 +117,16 @@ class App extends Component {
     });
     return fragments.reduce((words, word) => words.concat(word, ' '), [""]);
   }
+
+  formatTime(timeString) {
+    let dayName = timeString.slice(0, 3);
+    let day = timeString.slice(8, 10);
+    let month = timeString.slice(4, 7);
+    let year = timeString.slice(26, 30);
+    let minute = timeString.slice(14, 16);
+    let time = timeString.slice(11, 13) > 12 ? timeString.slice(11, 13) - 12 + ":" + minute + "PM": timeString.slice(11, 13) + ":" + minute + "AM";
+    return "at " + time + " on " + dayName + " " + month + " " + day + ",  " + year;
+  }
   
   formatTweets(tweets) {
     return (tweets.map(tweet => {
@@ -119,7 +138,7 @@ class App extends Component {
                   <img className="profile-picture-small" src={tweet.user.profile_image_url_https} />
                 </div>
                 <div className="header-name no-padding">
-                  <h3 className="no-padding no-margin">{tweet.user.name} <br /> <span className="user-name">@{tweet.user.screen_name}</span></h3>
+                  <h3 className="no-padding no-margin"><a className="search-link" onClick={this.showProfileCard.bind(this, tweet)}>{tweet.user.name}</a> <br /> <span className="user-name"><a className="search-link" onClick={this.searchLink.bind(this, tweet.user.screen_name)}>@{tweet.user.screen_name}</a></span></h3>
                 </div>
             </div>
             <div className="tweetBody">
@@ -143,7 +162,7 @@ class App extends Component {
                 <p className="bold black">{this.getHashTags(tweet)}</p>
               </div>
               <div className="posted-on">
-                <p>on {tweet.created_at}</p>
+                <p>{this.formatTime(tweet.created_at)}</p>
               </div>
             </div>
           </div>
@@ -179,6 +198,10 @@ class App extends Component {
   render() {
     return (
       <div className="Main" id="splash">
+      <div id="profile-card">
+        <button id="close-button" onClick={this.hideProfileCard}></button>
+        <h1>Profile Card!</h1>
+      </div>
         <div className="row">
           <div className="col-3 title no-padding">
             <h2 className="white">Otterwerks</h2>

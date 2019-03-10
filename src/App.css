@@ -96,6 +96,7 @@ h3 {
 .page-heading-box {
   background-color: var(--color-extra-light-gray);
   margin: 1.5vmin;
+  box-shadow: 0.1vmin 0.2vmin 1vmin var(--color-dark-gray);
 }
 
 .border {
@@ -135,7 +136,8 @@ h3 {
   background-color: var(--color-light-gray);
   border: 0.5vmin solid var(--color-dark-gray);
   border-radius: 1.5vmin;
-  padding: 0px
+  padding: 0px;
+  box-shadow: 0.1vmin 0.3vmin 1vmin var(--color-dark-gray);
 }
 
 .navButton {
@@ -200,9 +202,39 @@ h3 {
   background-color: var(--color-primary);
 } 
 
-.search-hash-tag {
+.search-link {
   cursor: pointer; 
   cursor: hand;
+}
+
+.search-link:hover {
+  color: var(--color-primary);
+}
+
+#profile-card {
+  position: fixed;
+  border-radius: 0.5vmin;
+  background-color: var(--color-white);
+  border: none;
+  box-shadow: 0.5vmin 0.25vmin 1vmin var(--color-dark-gray);
+  border-radius: 0.5vmin;
+  z-index: 99;
+  top: 20vh;
+  left: 20vw;
+  height: 60vh;
+  width: 60vw;
+  display: none;
+}
+
+#close-button {
+  position: fixed;
+  border: none;
+  top: -1vh;
+  left: -1vw;
+  background-color: transparent;
+  z-index: 999;
+  height: 101vh;
+  width: 101vw;
 }
 
 #search-row {
@@ -310,6 +342,7 @@ select {
   border: 0.5vmin solid var(--color-dark-gray);
   border-radius: 0.5vmin 2.5vmin 2.5vmin;
   background-color: var(--color-white);
+  box-shadow: 0.1vmin 0.2vmin 1vmin var(--color-dark-gray);
 }
 
 .tweetHeader {
