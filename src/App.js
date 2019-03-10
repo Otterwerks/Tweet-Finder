@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './verified.png';
 import Navbar from './navbar.js';
 import Home from './home.js';
 import Search from './search.js';
@@ -15,7 +16,8 @@ class App extends Component {
       searchType: 'content',
       contentType: 'mixed',
       searchResults: [],
-      awesomeTweets: []
+      awesomeTweets: [],
+      profile: {}
     }
     this.handleChange = this.handleChange.bind(this);
     this.setSearchType = this.setSearchType.bind(this);
@@ -90,6 +92,17 @@ class App extends Component {
   }
 
   showProfileCard(tweet) {
+    this.setState({profile: {
+      image: tweet.user.profile_image_url_https.replace('_normal', ''),
+      name: tweet.user.name,
+      username: tweet.user.screen_name,
+      description: tweet.user.description,
+      followers: tweet.user.followers_count,
+      verified: tweet.user.verified,
+      following: tweet.user.friends_count,
+      banner: tweet.user.profile_banner_url,
+      tweets: tweet.user.statuses_count,
+    }})
     document.getElementById("profile-card").style.display = "block";
   }
 
@@ -138,7 +151,7 @@ class App extends Component {
                   <img className="profile-picture-small" src={tweet.user.profile_image_url_https} />
                 </div>
                 <div className="header-name no-padding">
-                  <h3 className="no-padding no-margin"><a className="search-link" onClick={this.showProfileCard.bind(this, tweet)}>{tweet.user.name}</a> <br /> <span className="user-name"><a className="search-link" onClick={this.searchLink.bind(this, tweet.user.screen_name)}>@{tweet.user.screen_name}</a></span></h3>
+                  <h3 className="no-padding no-margin"><a className="search-link" onClick={this.showProfileCard.bind(this, tweet)}>{tweet.user.name}</a>{tweet.user.verified == true && <img className="verified" src={require("./verified.png")} />} <br /> <span className="user-name"><a className="search-link" onClick={this.searchLink.bind(this, tweet.user.screen_name)}>@{tweet.user.screen_name}</a></span></h3>
                 </div>
             </div>
             <div className="tweetBody">
@@ -198,10 +211,11 @@ class App extends Component {
   render() {
     return (
       <div className="Main" id="splash">
-      <div id="profile-card">
-        <button id="close-button" onClick={this.hideProfileCard}></button>
-        <h1>Profile Card!</h1>
-      </div>
+        <div id="profile-card">
+          <button id="close-button" onClick={this.hideProfileCard}></button>
+          <img id="profile-card-banner" src={this.state.profile.banner} />
+          <img id="profile-card-image" src={this.state.profile.image} />
+        </div>
         <div className="row">
           <div className="col-3 title no-padding">
             <h2 className="white">Otterwerks</h2>

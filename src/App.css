@@ -220,10 +220,38 @@ h3 {
   border-radius: 0.5vmin;
   z-index: 99;
   top: 20vh;
-  left: 20vw;
-  height: 60vh;
-  width: 60vw;
+  left: calc(50% - 20vh);
+  height: 70vh;
+  width: 40vh;
   display: none;
+}
+
+#profile-card-image {
+  position: fixed;
+  top: 24vh;
+  left: calc(50% - 15vh);
+  height: 10vh;
+  width: 10vh;
+  border: 0.5vmin solid var(--color-white);
+  border-radius: 50%;
+  z-index: 120;
+}
+
+#profile-card-banner {
+  background-color: var(--color-primary);
+  position: fixed;
+  top: 20vh;
+  left: calc(50% - 20vh);
+  width: 40vh;
+  height: 10vh;
+  z-index: 110;
+}
+
+.verified {
+  vertical-align: text-top;
+  height: 2vmin;
+  width: 2vmin;
+  margin-left: 0.25vmin;
 }
 
 #close-button {
