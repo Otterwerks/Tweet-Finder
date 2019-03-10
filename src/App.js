@@ -63,12 +63,10 @@ class App extends Component {
   }
 
   searchHashTag(hashTag) {
-    this.setState({searchResults: []});
+    this.setState({searchResults: [], view: "Search"});
       let resource = 'api/v1/methods/search?';
       let parameter1 = 'searchString=' + hashTag;
-      let parameter2 = '&searchType=' + this.state.searchType;
-      let parameter3 = '&contentType=' + this.state.contentType;
-      let url = resource + parameter1 + parameter2 + parameter3;
+      let url = resource + parameter1;
       axios.get(url)
         .then((response) => {
           this.setState({searchResults: response.data});
@@ -128,7 +126,17 @@ class App extends Component {
               <p className="tweetText">{this.textCorrection(tweet.full_text)}</p>
             </div>
             <div className="tweetMedia">
-              {tweet.extended_entities ? tweet.extended_entities.media ? tweet.extended_entities.media[0].type == "video" ? <video className="embeddedMedia" controls><source src={tweet.extended_entities.media[0].video_info.variants[3].url} type="video/mp4" /></video> : <img className="embeddedMedia" src={tweet.extended_entities.media[0].media_url_https} /> : null : null}
+              {tweet.extended_entities ? 
+                tweet.extended_entities.media ? 
+                  tweet.extended_entities.media[0].type == "video" ? 
+                    tweet.extended_entities.media[0].video_info.variants ?
+                      tweet.extended_entities.media[0].video_info.variants[tweet.extended_entities.media[0].video_info.variants.length - 1].url ?
+                        <video className="embeddedMedia" controls><source src={tweet.extended_entities.media[0].video_info.variants[tweet.extended_entities.media[0].video_info.variants.length - 1].url} /></video> : 
+                        null : 
+                      null :
+                    <img className="embeddedMedia" src={tweet.extended_entities.media[0].media_url_https} /> : 
+                  null : 
+                null}
             </div>
             <div className="tweetFooter">
               <div className="hash-tags">
