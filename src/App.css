@@ -200,7 +200,25 @@ h3 {
 .button:hover {
   color: var(--color-white);
   background-color: var(--color-primary);
-} 
+}
+
+#favorite-tweet-button {
+  width: calc(100% - 1.5vmin);
+  height: 6vmin;
+  font-size: 4vmin;
+  overflow: hidden;
+  color: var(--color-primary);
+  background-color: var(--color-extra-extra-light-gray);
+  border: 0.5vmin solid var(--color-dark-gray);
+  border-radius: 0.5vmin;
+  margin: 1vmin;
+  font-family: 'Helvetica Neue 75 Bold', Helvetica;
+}
+
+#favorite-tweet-button:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
 
 .search-link {
   cursor: pointer; 
@@ -229,6 +247,7 @@ h3 {
 #profile-card-panel {
   position: fixed;
   z-index: 100;
+  border-radius: 0vmin, 0vmin, 0.5vmin, 0.5vmin;
   top: 42vh;
   left: calc(50% - 20vh);
   height: 48vh;
@@ -250,6 +269,7 @@ h3 {
 #profile-card-banner {
   background-color: var(--color-primary);
   position: fixed;
+  border-radius: 0.5vmin, 0.5vmin, 0vmin, 0vmin;
   top: 20vh;
   left: calc(50% - 20vh);
   width: 40vh;
@@ -419,7 +439,14 @@ select {
   width: 6vmin;
   height: 6vmin;
   border-radius: 50%;
-} 
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+
+.profile-picture-small:hover {
+  -webkit-transform: rotate(720deg);
+  transform: rotate(720deg);
+}
 
 .header-profile-picture {
   float: left;
@@ -492,6 +519,8 @@ select {
 }
 
 .textBox {
+  margin-top: 1vmin;
+  margin-left: 1vmin;
   padding: 0px 1.5vmin;
 }
 

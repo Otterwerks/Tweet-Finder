@@ -27,16 +27,14 @@ class AwesomeTweets extends Component {
         <div className="main">
           <div className="row">
             <div className="col-8">
-              <div className="subHeader">
-                <h2 className="dark-gray">Tweets From My Favorite Accounts</h2>
+              <div className="round-border no-padding title-box">
+                <h2 className="primary bold page-title">My Favorite Accounts</h2>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-8">
-              <div className="input">
-                <button className="button form-item" onClick={this.props.getTweet}>Listen to the chirping</button>
-              </div>
+              <button id="favorite-tweet-button" onClick={this.props.getTweet}>Listen to the chirping <br /> Tweet Tweet</button>
             </div>
           </div>
           <div className="row">
