@@ -209,7 +209,7 @@ h3 {
   font-size: 5vmin;
   overflow: hidden;
   color: var(--color-primary);
-  background-color: var(--color-extra-extra-light-gray);
+  background-color: var(--color-extra-light-gray);
   border: 0.5vmin solid var(--color-dark-gray);
   border-radius: 0.5vmin;
   margin: 0.5vmin;

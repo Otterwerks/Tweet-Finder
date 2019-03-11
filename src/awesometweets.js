@@ -5,7 +5,7 @@ class AwesomeTweets extends Component {
     if (this.props.tweet[0]) {
       switch (this.props.tweet[0].user.screen_name) {
         case "jabrils_":
-          return <p><strong>Jabrils:</strong> He has some really cool videos up on his Youtube channel, I found him because I have a Tello drone and was researching projects for it. One of his projects was to program it to track faces using machine learning, bookmarked for my to-do list!</p>;
+          return <p><strong>Jabrils:</strong> A maker with some really cool videos up on his Youtube channel, I discovered him when I was searching for project ideas for my Tello drone. One of his projects was to program it to track faces using machine learning, bookmarked for my to-do list!</p>;
         case "Raspberry_Pi":
           return <p><strong>Raspberry Pi:</strong> I started playing with Pis a couple years ago. The first thing I did was 'upgrade' a toy catapult I had with pan/tilt servos and a couple solenoids to fire it, all controlled through a Pi connected to a touchscreen interface I programmed using Kivy.</p>;
         case "MarkKnopfler":
@@ -18,7 +18,7 @@ class AwesomeTweets extends Component {
           return "I don't know anything about this account, how did it get here?";
       }
     } else {
-      return "Press the button to display a random tweet from one of my favorite Twitter accounts.";
+      return "Listen to the chirping and you will hear a random tweet from one of my favorite Twitter accounts.";
     }
   }
 

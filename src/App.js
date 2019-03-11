@@ -5,6 +5,7 @@ import Navbar from './navbar.js';
 import Home from './home.js';
 import Search from './search.js';
 import AwesomeTweets from './awesometweets.js';
+import Info from './info.js';
 import axios from 'axios';
 
 class App extends Component {
@@ -207,6 +208,8 @@ class App extends Component {
                 getTweet={this.awesomeTweets}
                 formatTweet={this.formatTweets}
               />
+    } else if (this.state.view === "Info") {
+      return <Info />
     } else {
       return <Home />
     }
