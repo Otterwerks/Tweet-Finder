@@ -102,6 +102,10 @@ class App extends Component {
       following: tweet.user.friends_count,
       banner: tweet.user.profile_banner_url,
       tweets: tweet.user.statuses_count,
+      created: tweet.user.created_at.slice(26, 30),
+      url: 'url' in tweet.user.entities ? tweet.user.entities.url.urls[0].expanded_url : null,
+      url_text: 'url' in tweet.user.entities ? tweet.user.entities.url.urls[0].display_url : null,
+      location: tweet.user.location,
     }})
     document.getElementById("profile-card").style.display = "block";
   }
@@ -213,14 +217,17 @@ class App extends Component {
       <div className="Main" id="splash">
         <div id="profile-card">
           <button id="close-button" onClick={this.hideProfileCard}></button>
+          <a id="view-twitter-profile-link" href={"http://twitter.com/" + this.state.profile.username} target="_blank">View profile on Twitter</a>
           <div id="profile-card-panel">
             <img id="profile-card-banner" src={this.state.profile.banner} />
             <img id="profile-card-image" src={this.state.profile.image} />
-            <a id="view-twitter-profile-link" href={"http://twitter.com/" + this.state.profile.username} target="_blank">View profile on Twitter</a>
             <p id="profile-card-name" className="bold">{this.state.profile.name}{this.state.profile.verified == true && <img id="profile-card-verified" src={require("./verified.png")} />}</p>
             <p id="profile-card-username">@{this.state.profile.username}</p>
             <p id="profile-card-description">{this.state.profile.description}</p>
+            <p id="profile-card-location" className="bold">{this.state.profile.location}</p>
+            <p id="profile-card-created" className="bold">Member since {this.state.profile.created}</p>
           </div>
+          {this.state.profile.url != null && this.state.profile.url_text != null && <a id="profile-card-weblink" className="bold" href={this.state.profile.url} target="_blank">{this.state.profile.url_text}</a>}
         </div>
         <div className="row">
           <div className="col-3 title no-padding">

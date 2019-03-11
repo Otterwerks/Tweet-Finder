@@ -261,7 +261,7 @@ h3 {
   color: var(--color-primary);
   font-size: 2vh;
   position: fixed;
-  z-index: 1000;
+  z-index: 10000;
   top: 30.5vh;
   left: calc(50% - 2vh);
 }
@@ -287,17 +287,45 @@ h3 {
 #profile-card-verified {
   height: 2.5;
   width: 2.5vh;
+  margin-left: 0.5vh;
   vertical-align: text-top;
 }
 
 #profile-card-description {
   position: fixed;
   z-index: 110;
-  font-size: 2vh;
+  font-size: 3vh;
   top: 42vh;
   width: 35vh;
   left: calc(50% - 18vh);
   color: var(--color-black);
+}
+
+#profile-card-location {
+  position: fixed;
+  z-index: 110;
+  font-size: 2vh;
+  top: 81vh;
+  left: calc(50% - 18vh);
+  color: var(--color-primary);
+}
+
+#profile-card-weblink {
+  position: fixed;
+  z-index: 10000;
+  font-size: 2vh;
+  top: 80vh;
+  left: calc(50% - 18vh);
+  color: var(--color-primary);
+}
+
+#profile-card-created {
+  position: fixed;
+  z-index: 110;
+  font-size: 2vh;
+  top: 84vh;
+  left: calc(50% - 18vh);
+  color: var(--color-primary);
 }
 
 .verified {
