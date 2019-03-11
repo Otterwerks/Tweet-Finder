@@ -34,7 +34,7 @@ class AwesomeTweets extends Component {
           </div>
           <div className="row">
             <div className="col-8">
-              <button id="favorite-tweet-button" onClick={this.props.getTweet}>Listen to the chirping <br /> Tweet Tweet</button>
+              <button id="favorite-tweet-button" onClick={this.props.getTweet}>Listen to the chirping</button>
             </div>
           </div>
           <div className="row">

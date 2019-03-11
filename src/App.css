@@ -203,15 +203,16 @@ h3 {
 }
 
 #favorite-tweet-button {
-  width: calc(100% - 1.5vmin);
-  height: 6vmin;
-  font-size: 4vmin;
+  width: calc(100% - 1vmin);
+  padding: 1vmin;
+  padding-top: 2vmin;
+  font-size: 5vmin;
   overflow: hidden;
   color: var(--color-primary);
   background-color: var(--color-extra-extra-light-gray);
   border: 0.5vmin solid var(--color-dark-gray);
   border-radius: 0.5vmin;
-  margin: 1vmin;
+  margin: 0.5vmin;
   font-family: 'Helvetica Neue 75 Bold', Helvetica;
 }
 
@@ -520,8 +521,9 @@ select {
 
 .textBox {
   margin-top: 1vmin;
-  margin-left: 1vmin;
+  margin-left: 0.5vmin;
   padding: 0px 1.5vmin;
+  width: calc(100% - 1vmin);
 }
 
 .textBox.large {
