@@ -2,11 +2,37 @@ import os
 import requests
 import random
 import json
+import pickle
+import redis
 import re
+from datetime import datetime, timedelta
 from key import key
+from redis_password import password
 from flask import Flask, send_from_directory, request, jsonify
 
 app = Flask(__name__, static_url_path='/build')
+
+redis_host = "redis-18817.c99.us-east-1-4.ec2.cloud.redislabs.com"
+redis_port = "18817"
+redis_password = password
+
+epoch = datetime.utcfromtimestamp(0)
+
+def unix_time_seconds(dt):
+    return (dt - epoch).total_seconds()
+
+def redisWrite(key, value):
+    query_time = unix_time_seconds(datetime.now())
+    r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
+    r.set(key, value)
+    r.set(key + "_time", query_time)
+    print("Set key:" + key)
+    return
+
+def redisRead(key):
+    r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
+    value = r.get(key)
+    return value
 
 def getExtendedTweets(id_array):
     ids = ','.join(id_array)
@@ -15,7 +41,7 @@ def getExtendedTweets(id_array):
     params = {'id': ids, 'tweet_mode': 'extended'}
     r = requests.get(url, headers=headers, params=params)
     results = r.json()
-    return jsonify(results)
+    return results
         
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -43,21 +69,43 @@ def api_search():
     results_ids = []
     for tweet in r.json()["statuses"]:
         results_ids.append(tweet["id_str"])
-    return getExtendedTweets(results_ids)
+    return jsonify(getExtendedTweets(results_ids))
 
 @app.route('/api/v1/methods/showcase', methods=['GET'])
 def api_showcase():
     users = ["from:jabrils_", "from:Raspberry_Pi", "from:MarkKnopfler", "from:mightycarmods", "from:playhearthstone"]
     index = random.randint(0, len(users) - 1)
     user = users[index]
-    url = 'https://api.twitter.com/1.1/search/tweets.json'
-    headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
-    params = {'q': user}
-    r = requests.get(url, headers=headers, params=params)
-    results = r.json()["statuses"]
-    result = results[random.randint(0, len(results) - 1)]
-    result_id = [result['id_str']]
-    return getExtendedTweets(result_id)
+    cache_status = "expired"
+    previous_query = redisRead(user + "_time")
+
+    if previous_query is not None:
+        print("checking query time")
+        expire_time_seconds = 43200
+        old_time = float(previous_query)
+        current_time = unix_time_seconds(datetime.now())
+        if (old_time + expire_time_seconds) > current_time:
+            print("setting cache to active")
+            cache_status = "active"
+        
+    if cache_status == "expired":
+        print("requesting from twitter")
+        url = 'https://api.twitter.com/1.1/search/tweets.json'
+        headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': key}
+        params = {'q': user}
+        r = requests.get(url, headers=headers, params=params)
+        results_ids = []
+
+        for tweet in r.json()["statuses"]:
+            results_ids.append(tweet["id_str"])
+
+        full_tweets = getExtendedTweets(results_ids)
+        redisWrite(user, json.dumps(full_tweets))
+        return jsonify(full_tweets[random.randint(0, len(full_tweets) - 1)])
+
+    cached_tweets = json.loads(redisRead(user))
+    print("Submitting cached tweets")
+    return jsonify([cached_tweets[random.randint(0, len(cached_tweets) - 1)]])
 
 
 
