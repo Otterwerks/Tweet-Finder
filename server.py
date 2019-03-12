@@ -7,14 +7,10 @@ import redis
 import re
 from datetime import datetime, timedelta
 from key import key
-from redis_password import password
+from redis_password import redis_password, redis_host, redis_port
 from flask import Flask, send_from_directory, request, jsonify
 
 app = Flask(__name__, static_url_path='/build')
-
-redis_host = "redis-18817.c99.us-east-1-4.ec2.cloud.redislabs.com"
-redis_port = "18817"
-redis_password = password
 
 epoch = datetime.utcfromtimestamp(0)
 
@@ -22,10 +18,10 @@ def unix_time_seconds(dt):
     return (dt - epoch).total_seconds()
 
 def redisWrite(key, value):
-    query_time = unix_time_seconds(datetime.now())
+    write_time = unix_time_seconds(datetime.now())
     r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
     r.set(key, value)
-    r.set(key + "_time", query_time)
+    r.set(key + "_time", write_time)
     print("Set key:" + key)
     return
 
