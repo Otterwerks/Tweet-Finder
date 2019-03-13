@@ -97,7 +97,8 @@ def api_showcase():
 
         full_tweets = getExtendedTweets(results_ids)
         redisWrite(user, json.dumps(full_tweets))
-        return jsonify(full_tweets[random.randint(0, len(full_tweets) - 1)])
+        new_tweet = full_tweets[random.randint(0, len(full_tweets) - 1)]
+        return jsonify([new_tweet])
 
     cached_tweets = json.loads(redisRead(user))
     print("Submitting cached tweets")
