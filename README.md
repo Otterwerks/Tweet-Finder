@@ -4,7 +4,7 @@ _A website to showcase Tweets using React, Flask, and Redis._
 
 View live at https://otterwerks-twitter-app.herokuapp.com
 
-<img src="demo.png" width="400">
+<img src="demo.png" width="600">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -51,10 +51,10 @@ This file should contain a single line of code that looks like ```key = "bearer 
 - Copy the token into key.py
 
 #### redis_password.py
-All of the database specific variables are stored in this file, there should be three lines of code: ```host = "https://<your_server_address>"```, ```port = "<server_port_number>"```, and ```password = "<your_database_password>"```. This project uses the <a href="https://redislabs.com/blog/redis-cloud-30mb-ram-30-connections-for-free/">Redis Cloud</a> add-on with a free subscription. 
+All of the database specific variables are stored in this file, there should be three lines of code: ```host = "https://<your_server_address>"```, ```port = "<server_port_number>"```, and ```password = "<your_database_password>"```. This project uses the <a href="https://redislabs.com/blog/redis-cloud-30mb-ram-30-connections-for-free/">Redis Cloud</a> Heroku add-on with a free subscription. 
 
 ### Building the App
-This project was started with create-react-app, navigate to the project root directory and ```npm run build```
+This project was started with create-react-app, navigate to the project root directory and with <a href="https://nodejs.org/en/">Node</a> installed: ```npm run build```
 
 ### Deploy Locally
 To serve the project locally, install the latest version of Python and create a new virtual environment. Activate the virtual environment, then navigate to the project root directory and ```pip install requirements.txt```. Set the environment variable ```export FLASK_APP=server.py```, and start the server with ```flask run```. You can now open a browser and navigate to http://localhost:5000 to view the project.
@@ -66,13 +66,13 @@ After building the app, this project is ready to be deployed on Heroku. Select w
 
 
 ## Resources Used
-- <a href="https://reactjs.org/">ReactJS</a> tutorial and step-by-step guide
+- <a href="https://reactjs.org/">ReactJS tutorial and step-by-step guide</a>
 - <a href="https://redis.io/topics/quickstart">Redis Quick Start Guide</a>
 - <a href="https://opensource.com/article/18/4/how-build-hello-redis-with-python">How to Build Hello Redis with Python</a>
 - <a href="https://dev.to/sahilrajput/install-flask-and-create-your-first-web-application-2dba">Install Flask and Create Your First Application</a>
 - <a href="https://developer.twitter.com/en/docs.html">Twitter API Documentation</a>
 - <a href="https://about.twitter.com/en_us/company/brand-resources.html">Twitter Brand Resources</a>
 - <a href="https://reactjs.org/docs/create-a-new-react-app.html#create-react-app">Create-React-App</a>, <a href="https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents">Full user guide</a>
-- <a href="https://www.npmjs.com/package/axios">Axios</a> project page
+- <a href="https://www.npmjs.com/package/axios">Axios project page</a>
 - <a href="https://alligator.io/react/axios-react/">Using Axios with React</a>
-- <a href="http://docs.python-requests.org/en/master/">Requests</a> documentation
+- <a href="http://docs.python-requests.org/en/master/">Requests documentation</a> 
