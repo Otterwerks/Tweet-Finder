@@ -4,7 +4,7 @@ _A website to showcase Tweets using React, Flask, and Redis._
 
 View live at https://otterwerks-twitter-app.herokuapp.com
 
-<img src="https://github.com/otterwerks/Tweet-Finder/demo.png">
+<img src="demo.png" width="400">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
