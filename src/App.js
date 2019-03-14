@@ -18,6 +18,7 @@ class App extends Component {
       contentType: 'mixed',
       searchResults: [],
       awesomeTweets: [],
+      cacheWriteAge: 0,
       profile: {}
     }
     this.handleChange = this.handleChange.bind(this);
@@ -85,7 +86,7 @@ class App extends Component {
     let url = 'api/v1/methods/showcase';
     axios.get(url)
       .then((response) => {
-        this.setState({awesomeTweets: response.data})
+        this.setState({awesomeTweets: response.data[0], cacheWriteAge: response.data[1]})
       })
       .catch(function (error) {
         console.log(error);
@@ -207,6 +208,7 @@ class App extends Component {
                 tweet={this.state.awesomeTweets}
                 getTweet={this.awesomeTweets}
                 formatTweet={this.formatTweets}
+                cacheWriteAge={this.state.cacheWriteAge}
               />
     } else if (this.state.view === "Info") {
       return <Info />

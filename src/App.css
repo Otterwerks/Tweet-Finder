@@ -230,6 +230,13 @@ h3 {
   color: var(--color-primary);
 }
 
+#cached-tweet-box {
+  margin: 2vmin;
+  padding-left: 2vmin;
+  font-family: 'Helvetica Neue 55 Roman', Helvetica;
+  font-size: 3vmin;
+}
+
 #profile-card {
   position: fixed;
   border-radius: 0.5vmin;

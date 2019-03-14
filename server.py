@@ -80,7 +80,8 @@ def api_showcase():
         expire_time_seconds = 43200
         old_time = float(previous_query)
         current_time = unix_time_seconds(datetime.now())
-        if (old_time + expire_time_seconds) > current_time:
+        cache_age = current_time - old_time
+        if cache_age < expire_time_seconds:
             print("setting cache to active")
             cache_status = "active"
         
@@ -97,12 +98,13 @@ def api_showcase():
 
         full_tweets = getExtendedTweets(results_ids)
         redisWrite(user, json.dumps(full_tweets))
+        cache_age = 0
         new_tweet = full_tweets[random.randint(0, len(full_tweets) - 1)]
-        return jsonify([new_tweet])
+        return jsonify([[new_tweet], cache_age])
 
     cached_tweets = json.loads(redisRead(user))
     print("Submitting cached tweets")
-    return jsonify([cached_tweets[random.randint(0, len(cached_tweets) - 1)]])
+    return jsonify([[cached_tweets[random.randint(0, len(cached_tweets) - 1)]], cache_age])
 
 
 

@@ -22,6 +22,26 @@ class AwesomeTweets extends Component {
     }
   }
 
+  cacheAge(cacheWriteAge, tweet) {
+    if (this.props.tweet[0]) {
+      if (cacheWriteAge == 0) {
+        return <p>Tweet cache for {tweet.user.screen_name} refreshed!</p>
+      } else {
+        return <p>Cached Tweets are {this.convertToHours(cacheWriteAge)} hour(s) old.</p>
+      }
+    } else {
+      return <p>This page uses <strong>RedisCloud</strong> for Tweet caching.</p>
+    }
+  }
+
+  convertToHours(seconds) {
+    let hours = Math.round(seconds / 3600);
+    if (hours == 0) {
+      hours = "< 1";
+    }
+    return hours;
+  }
+
     render() {
       return (
         <div className="main">
@@ -30,6 +50,11 @@ class AwesomeTweets extends Component {
               <div className="round-border no-padding title-box">
                 <h2 className="primary bold page-title">My Favorite Accounts</h2>
               </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="row-8 round-border" id="cached-tweet-box">
+              {this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}
             </div>
           </div>
           <div className="row">
