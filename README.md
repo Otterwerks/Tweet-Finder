@@ -71,7 +71,7 @@ After building the app, this project is ready to be deployed on Heroku. Select w
 - <a href="https://opensource.com/article/18/4/how-build-hello-redis-with-python">How to Build Hello Redis with Python</a>
 - <a href="https://dev.to/sahilrajput/install-flask-and-create-your-first-web-application-2dba">Install Flask and Create Your First Application</a>
 - <a href="https://developer.twitter.com/en/docs.html">Twitter API Documentation</a>
-- <a href-"https://about.twitter.com/en_us/company/brand-resources.html">Twitter Brand Resources</a>
+- <a href="https://about.twitter.com/en_us/company/brand-resources.html">Twitter Brand Resources</a>
 - <a href="https://reactjs.org/docs/create-a-new-react-app.html#create-react-app">Create-React-App</a>, <a href="https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents">Full user guide</a>
 - <a href="https://www.npmjs.com/package/axios">Axios</a> project page
 - <a href="https://alligator.io/react/axios-react/">Using Axios with React</a>
