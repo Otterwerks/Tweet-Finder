@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 from key import key
 from redis_password import redis_password, redis_host, redis_port
 from flask import Flask, send_from_directory, request, jsonify
+from clear_redis import clear_redis
 
 app = Flask(__name__, static_url_path='/build')
 
@@ -74,13 +75,15 @@ def api_showcase():
     user = users[index]
     cache_status = "expired"
     previous_query = redisRead(user + "_time")
+    cache_age = 0
 
     if previous_query is not None:
         print("checking query time")
         expire_time_seconds = 43200
         old_time = float(previous_query)
         current_time = unix_time_seconds(datetime.now())
-        cache_age = current_time - old_time
+        cache_age = int(current_time - old_time)
+
         if cache_age < expire_time_seconds:
             print("setting cache to active")
             cache_status = "active"
@@ -105,6 +108,13 @@ def api_showcase():
     cached_tweets = json.loads(redisRead(user))
     print("Submitting cached tweets")
     return jsonify([[cached_tweets[random.randint(0, len(cached_tweets) - 1)]], cache_age])
+
+@app.route('/api/v1/utilities/cacheRefresh', methods=['GET'])
+def api_clearCache():
+    clear_redis()
+    print("Cache cleared.")
+    return jsonify({"success": "success"})
+
 
 
 

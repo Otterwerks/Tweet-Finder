@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class AwesomeTweets extends Component {
   showDescription() {
@@ -42,6 +43,14 @@ class AwesomeTweets extends Component {
     return hours;
   }
 
+  refreshCachedTweets() {
+    let url = 'api/v1/utilities/cacheRefresh';
+    axios.get(url)
+      .catch(function (error) {
+        console.log(error);
+      })
+  }
+
     render() {
       return (
         <div className="main">
@@ -54,7 +63,7 @@ class AwesomeTweets extends Component {
           </div>
           <div className="row">
             <div className="row-8 round-border" id="cached-tweet-box">
-              {this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}
+              <span>{this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}</span><span><button onClick={this.refreshCachedTweets}>Refresh cached Tweets</button></span>
             </div>
           </div>
           <div className="row">
