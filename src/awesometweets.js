@@ -28,7 +28,7 @@ class AwesomeTweets extends Component {
       if (cacheWriteAge == 0) {
         return <p>Tweet cache for {tweet.user.screen_name} refreshed!</p>
       } else {
-        return <p>Cached Tweets are {this.convertToHours(cacheWriteAge)} hour(s) old.</p>
+        return <p>Tweet cache for {tweet.user.screen_name} last updated {cacheWriteAge} seconds ago.</p>
       }
     } else {
       return <p>This page uses <strong>RedisCloud</strong> for Tweet caching.</p>
@@ -63,7 +63,7 @@ class AwesomeTweets extends Component {
           </div>
           <div className="row">
             <div className="row-8 round-border" id="cached-tweet-box">
-              <span>{this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}</span><span><button onClick={this.refreshCachedTweets}>Refresh cached Tweets</button></span>
+              <span>{this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}</span><span><button id="cache-refresh-button" onClick={this.refreshCachedTweets}>Refresh cached Tweets</button></span>
             </div>
           </div>
           <div className="row">

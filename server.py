@@ -2,7 +2,6 @@ import os
 import requests
 import random
 import json
-import pickle
 import redis
 import re
 from datetime import datetime, timedelta
@@ -55,7 +54,7 @@ def api_search():
     result_type = request.args.get('resultType')
     if search_string == "":
         search_string = "how does twitter work"
-    if search_type == 'user' and search_string[0] != 'from:': #need to fix with regex
+    if search_type == 'user' and search_string[0] != 'from:':
         search_string = 'from:' + search_string
     if not result_type:
         result_type = 'mixed'

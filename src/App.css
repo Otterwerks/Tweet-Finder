@@ -237,6 +237,22 @@ h3 {
   font-size: 3vmin;
 }
 
+#cache-refresh-button {
+  width: calc(100% - 3vmin);
+  background-color: var(--color-extra-light-gray);
+  color: var(--color-primary);
+  font-family: 'Helvetica Neue 75 Bold', Helvetica;
+  font-size: 3vmin;
+  margin-bottom: 3vmin;
+  border: 0.5vmin solid var(--color-dark-gray);
+  border-radius: 1vmin;
+}
+
+#cache-refresh-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
 #profile-card {
   position: fixed;
   border-radius: 0.5vmin;
