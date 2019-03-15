@@ -63,7 +63,7 @@ class AwesomeTweets extends Component {
           </div>
           <div className="row">
             <div className="row-8 round-border" id="cached-tweet-box">
-              <span>{this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}</span><span><button id="cache-refresh-button" onClick={this.refreshCachedTweets}>Refresh cached Tweets</button></span>
+              <span>{this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}</span><span><button id="cache-refresh-button" onClick={this.refreshCachedTweets}>Clear Cached Tweets</button></span>
             </div>
           </div>
           <div className="row">
