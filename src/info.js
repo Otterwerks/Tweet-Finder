@@ -11,7 +11,7 @@ class Info extends Component {
                 </div>
                 <div className="row">
                     <div className="col-3" id="info-box">
-                        <p>This website was built using React and Flask, it uses the free Twitter search API to query Tweets and accounts based on user input. I designed the UI/UX based on Twitter's Brand Resources without libraries or templates. I took the picture on the home page at the Golden Gate Bridge in San Francisco, Twitter's home.</p>
+                        <p>This website was built using React and Flask, it uses the free Twitter search API to query Tweets and accounts based on user input. Tweets from my favorite accounts are stored in a Redis cache for up to 12 hours (or 43,200 seconds) after they are fetched, you may manually clear the cache to force new Tweets to be fetched. I designed the UI/UX based on Twitter's Brand Resources without libraries or templates. I took the picture on the home page at the Golden Gate Bridge in San Francisco, Twitter's home.</p>
                     </div>
                 </div>
                 <div className="row">
