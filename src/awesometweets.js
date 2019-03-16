@@ -67,7 +67,7 @@ class AwesomeTweets extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-8">
+            <div className="col-8 round-border" id="favorite-button-box">
               <button id="favorite-tweet-button" onClick={this.props.getTweet}>Listen to the chirping</button>
             </div>
           </div>

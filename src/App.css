@@ -203,7 +203,7 @@ h3 {
 }
 
 #favorite-tweet-button {
-  width: calc(100% - 1vmin);
+  width: calc(100% - 8vmin);
   padding: 1vmin;
   padding-top: 2vmin;
   font-size: 5vmin;
@@ -235,17 +235,24 @@ h3 {
   padding-left: 2vmin;
   font-family: 'Helvetica Neue 55 Roman', Helvetica;
   font-size: 3vmin;
+  background-color: var(--color-white);
+}
+
+#favorite-button-box {
+  background-color: var(--color-white);
 }
 
 #cache-refresh-button {
-  width: calc(100% - 3vmin);
+  width: calc(50% - 3vmin);
   background-color: var(--color-extra-light-gray);
   color: var(--color-primary);
   font-family: 'Helvetica Neue 75 Bold', Helvetica;
   font-size: 3vmin;
   margin-bottom: 3vmin;
+  margin-left: 25%;
   border: 0.2vmin solid var(--color-dark-gray);
   border-radius: 0.3vmin;
+  padding-top: 1vmin;
 }
 
 #cache-refresh-button:hover {
@@ -398,9 +405,6 @@ h3 {
   background-color: var(--color-light-gray);
 }
 
-#search-button {
-}
-
 #search-field {
   width: calc(100% - 1vmin);
 }
@@ -414,7 +418,6 @@ h3 {
 }
 
 .custom-select {
-
   overflow: hidden;
   
 }

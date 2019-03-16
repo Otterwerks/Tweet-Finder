@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       view: "Home",
-      searchString: 'NA miata',
+      searchString: 'tensorflow',
       searchType: 'content',
       contentType: 'mixed',
       searchResults: [],
@@ -236,7 +236,7 @@ class App extends Component {
         </div>
         <div className="row">
           <div className="col-3 title no-padding">
-            <h2 className="white">Otterwerks</h2>
+            <h2 className="white"></h2>
           </div>
           <div className="col-5 title no-padding">
             <h1 className="bold white">Tweet Finder</h1>
