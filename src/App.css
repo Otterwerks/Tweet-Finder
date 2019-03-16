@@ -203,7 +203,7 @@ h3 {
 }
 
 #favorite-tweet-button {
-  width: calc(100% - 8vmin);
+  width: calc(100% - 1vmin);
   padding: 1vmin;
   padding-top: 2vmin;
   font-size: 5vmin;
@@ -231,7 +231,8 @@ h3 {
 }
 
 #cached-tweet-box {
-  margin: 2vmin;
+  margin: 0.5vmin;
+  width: calc(100% - 1vmin);
   padding-left: 2vmin;
   font-family: 'Helvetica Neue 55 Roman', Helvetica;
   font-size: 3vmin;
@@ -248,7 +249,7 @@ h3 {
   color: var(--color-primary);
   font-family: 'Helvetica Neue 75 Bold', Helvetica;
   font-size: 3vmin;
-  margin-bottom: 3vmin;
+  margin: 1vmin;
   margin-left: 25%;
   border: 0.2vmin solid var(--color-dark-gray);
   border-radius: 0.3vmin;
@@ -258,6 +259,15 @@ h3 {
 #cache-refresh-button:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+}
+
+#description-box {
+  background-color: var(--color-white);
+}
+
+#info-box {
+  font-size: 2vmin;
+  height: 50vh;
 }
 
 #profile-card {

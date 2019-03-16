@@ -54,26 +54,33 @@ class AwesomeTweets extends Component {
     render() {
       return (
         <div className="main">
-          <div className="row">
-            <div className="col-8">
-              <div className="round-border no-padding title-box">
-                <h2 className="primary bold page-title">My Favorite Accounts</h2>
+          <div className="page-heading-box round-border">
+            <div className="row">
+              <div className="col-8 no-padding">
+                <div className="round-border no-padding title-box">
+                  <h2 className="primary bold page-title">My Favorite Accounts</h2>
+                </div>
+              </div>
+            </div>
+            <div id="search-row" className="row">
+              <div id="search-box" className="col-8 round-border no-padding">
+                <div className="row no-padding">
+                  <div className="col-8 no-padding round-border" id="cached-tweet-box">
+                    {this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}
+                  </div>
+                </div>
+                <div className="row no-padding">
+                  <div className="col-8 no-padding">
+                    <button id="cache-refresh-button" onClick={this.refreshCachedTweets}>Clear Cached Tweets</button>
+                    <button id="favorite-tweet-button" onClick={this.props.getTweet}>Listen to the chirping</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div className="row">
-            <div className="row-8 round-border" id="cached-tweet-box">
-              <span>{this.cacheAge(this.props.cacheWriteAge, this.props.tweet[0])}</span><span><button id="cache-refresh-button" onClick={this.refreshCachedTweets}>Clear Cached Tweets</button></span>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-8 round-border" id="favorite-button-box">
-              <button id="favorite-tweet-button" onClick={this.props.getTweet}>Listen to the chirping</button>
-            </div>
-          </div>
-          <div className="row">
             <div className="col-3">
-              <div className="textBox medium black round-border">
+              <div className="textBox medium black round-border" id="description-box">
                 <p>{this.showDescription()}</p>
               </div>
             </div>
