@@ -4,6 +4,8 @@ _A website to showcase Tweets using React, Flask, and Redis._
 
 View live at https://otterwerks-twitter-app.herokuapp.com
 
+<p><img src="icons/react.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/flask.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/redis.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/gunicorn.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/heroku.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/postman.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/python.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/javascript.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/html-5.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/css-3.svg" width="30"></p>
+
 <img src="demo.png" width="600">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -51,7 +53,7 @@ This file should contain a single line of code that looks like ```key = "bearer 
 - Copy the token into key.py
 
 #### redis_password.py
-All of the database specific variables are stored in this file, there should be three lines of code: ```host = "https://<your_server_address>"```, ```port = "<server_port_number>"```, and ```password = "<your_database_password>"```. This project uses the <a href="https://redislabs.com/blog/redis-cloud-30mb-ram-30-connections-for-free/">Redis Cloud</a> Heroku add-on with a free subscription. 
+All of the database specific variables are stored in this file, there should be three lines of code: ```redis_host = "https://<your_server_address>"```, ```redis_port = "<server_port_number>"```, and ```redis_password = "<your_database_password>"```. This project uses the <a href="https://redislabs.com/blog/redis-cloud-30mb-ram-30-connections-for-free/">Redis Cloud</a> Heroku add-on with a free subscription. 
 
 ### Building the App
 This project was started with create-react-app, navigate to the project root directory and with <a href="https://nodejs.org/en/">Node</a> installed: ```npm run build```
