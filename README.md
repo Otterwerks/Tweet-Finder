@@ -4,7 +4,7 @@ _A website to showcase Tweets using React, Flask, and Redis._
 
 View live at https://otterwerks-twitter-app.herokuapp.com
 
-<p><img src="icons/react.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/flask.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/redis.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/gunicorn.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/heroku.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/postman.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/python.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/javascript.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/html-5.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/css-3.svg" width="30"></p>
+<p><img src="icons/react.svg" width="50">&nbsp&nbsp&nbsp&nbsp<img src="icons/flask.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/redis.svg" width="50">&nbsp&nbsp<img src="icons/gunicorn.svg" width="80">&nbsp&nbsp&nbsp&nbsp<img src="icons/heroku.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/postman.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/python.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/javascript.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/html-5.svg" width="35">&nbsp&nbsp&nbsp&nbsp<img src="icons/css-3.svg" width="35"></p>
 
 <img src="demo.png" width="600">
 
