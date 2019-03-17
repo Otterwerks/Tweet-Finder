@@ -616,6 +616,7 @@ select {
 }
 
 #splash {
+  background-color: var(--color-primary);
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("splash.jpeg");
   background-origin: border-box;
   -webkit-background-size: cover;
