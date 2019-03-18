@@ -2,7 +2,7 @@
 
 _A website to showcase Tweets using React, Flask, and Redis._
 
-View live at https://otterwerks-twitter-app.herokuapp.com
+View live at <a href="https://otterwerks-twitter-app.herokuapp.com" target="_blank">https://otterwerks-twitter-app.herokuapp.com</a>.
 
 <p><img src="icons/react.svg" width="50">&nbsp&nbsp&nbsp&nbsp<img src="icons/flask.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/redis.svg" width="50">&nbsp&nbsp<img src="icons/gunicorn.svg" width="80">&nbsp&nbsp&nbsp&nbsp<img src="icons/heroku.svg" width="30">&nbsp&nbsp&nbsp&nbsp<img src="icons/postman.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/python.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/javascript.svg" width="40">&nbsp&nbsp&nbsp&nbsp<img src="icons/html-5.svg" width="35">&nbsp&nbsp&nbsp&nbsp<img src="icons/css-3.svg" width="35"></p>
 
