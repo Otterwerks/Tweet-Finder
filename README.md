@@ -37,6 +37,9 @@ Tweet Finder is a single page application (SPA) that allows the user to search T
   - request (http requests)
   - redis (redis communication)
   - gunicorn (HTTP production server)
+- Hosts
+  - Main site on Heroku
+  - Redis on RedisCloud (redislabs.com) add-on for Heroku
 
 
 ## Deployment
