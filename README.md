@@ -31,10 +31,10 @@ Tweet Finder is a single page application (SPA) that allows the user to search T
 ## Technical
 - Frontend (JavaScript)
   - React (main SPA)
-  - Axios (http requests)
+  - Axios (HTTP requests)
 - Backend (Python)
   - Flask (Serving static site, internal API endpoints)
-  - request (http requests)
+  - request (HTTP requests)
   - redis (redis communication)
   - gunicorn (HTTP production server)
 - Hosts
@@ -56,7 +56,7 @@ This can be any jpeg image, it will show up with a 30% dark tint for better text
 #### key.py
 This file should contain a single line of code that looks like ```key = "bearer <alphanumeric_string>"```, replace <alphanumberic_string> with your unique authorization token. The basic process of generating an authorization token is as follows:
 - apply for a Twitter Developer Account and register a new app https://developer.twitter.com/en/apply-for-access.html
-- Use Postman to make an Oauth request to Twitter and receive a response containing the token https://developer.twitter.com/en/docs/basics/authentication/api-reference/token.html
+- Use <a href="https://www.getpostman.com" target="_blank">Postman</a> to make an Oauth request to Twitter and receive a response containing the token https://developer.twitter.com/en/docs/basics/authentication/api-reference/token.html
 - Copy the token into key.py
 
 #### redis_password.py
