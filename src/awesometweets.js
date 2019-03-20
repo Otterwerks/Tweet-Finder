@@ -72,7 +72,7 @@ class AwesomeTweets extends Component {
                 <div className="row no-padding">
                   <div className="col-8 no-padding">
                     <button id="cache-refresh-button" onClick={this.refreshCachedTweets}>Clear Cached Tweets</button>
-                    <button id="favorite-tweet-button" onClick={this.props.getTweet}>Listen to the chirping</button>
+                    <button id="favorite-tweet-button" onClick={this.props.getTweet}>Click Here to View a Tweet</button>
                   </div>
                 </div>
               </div>
