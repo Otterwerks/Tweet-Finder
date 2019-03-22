@@ -16,10 +16,10 @@ class AwesomeTweets extends Component {
         case "PlayHearthstone":
           return <p><strong>Play Hearthstone:</strong> I have been playing Hearthstone since Beta. I don't have time to game much these days so I really appreciate the simplicity and pace of this game. Blizzard is one of my favorite game studios.</p>;
         default:
-          return <p>"I don't know anything about this account, how did it get here?"</p>;
+          return <p>I don't know anything about this account, how did it get here?</p>;
       }
     } else {
-      return <p>"Listen to the chirping and you will hear a random tweet from one of my favorite Twitter accounts."</p>;
+      return <p>Listen to the chirping and you will hear a random tweet from one of my favorite Twitter accounts.</p>;
     }
   }
 
