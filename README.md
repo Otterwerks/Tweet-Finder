@@ -51,7 +51,7 @@ Successful deployment will require adding three files to the project:
 - redis_password.py, location: '/' (Redis server hostname, port, and password)
 
 #### splash.jpeg
-This can be any jpeg image, it will show up with a 30% dark tint for better text readability. Name it ```splash.jpeg``` and place it in the project root directory.
+This can be any jpeg image, it will show up with a 30% dark tint for better text readability. Name it ```splash.jpeg``` and place it in the project /src directory.
 
 #### key.py
 This file should contain a single line of code that looks like ```key = "bearer <alphanumeric_string>"```, replace <alphanumberic_string> with your unique authorization token. The basic process of generating an authorization token is as follows:
