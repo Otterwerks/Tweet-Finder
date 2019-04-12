@@ -29,10 +29,10 @@ Tweet Finder is a single page application (SPA) that allows the user to search T
 
 
 ## Technical
-- Frontend (JavaScript)
+- Front End (JavaScript)
   - React (main SPA)
   - Axios (HTTP requests)
-- Backend (Python)
+- Back End (Python)
   - Flask (Serving static site, internal API endpoints)
   - request (HTTP requests)
   - redis (redis communication)
