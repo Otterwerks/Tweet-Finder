@@ -99,12 +99,7 @@ h3 {
   box-shadow: 0.1vmin 0.2vmin 1vmin var(--color-dark-gray);
 }
 
-.border {
-  border: 0.3vmin solid var(--color-light-gray);
-}
-
 .round-border {
-  border: 0.2vmin solid var(--color-dark-gray);
   border-radius: 0.3vmin;
 }
 
@@ -134,7 +129,6 @@ h3 {
 
 .navBar {
   background-color: var(--color-light-gray);
-  border: 0.2vmin solid var(--color-dark-gray);
   border-radius: 0.3vmin;
   padding: 0px;
   box-shadow: 0.1vmin 0.3vmin 1vmin var(--color-dark-gray);
@@ -263,6 +257,7 @@ h3 {
 
 #description-box {
   background-color: var(--color-white);
+  border: 0.3vmin solid var(--color-light-gray);
 }
 
 #info-box {
@@ -512,7 +507,6 @@ select {
 
 .tweetBorder {
   padding: 1vmin;
-  border: 0.3vmin solid var(--color-dark-gray);
   border-radius: 0.5vmin 2.5vmin 2.5vmin;
   background-color: var(--color-white);
   box-shadow: 0.1vmin 0.2vmin 1vmin var(--color-dark-gray);
@@ -523,7 +517,6 @@ select {
   width: 100%;
   padding: 0px;
   padding-left: 2vmin;
-  border: 0.3vmin solid var(--color-dark-gray);
   background-color: var(--color-extra-light-gray);
   border-radius: 0.5vmin 2.5vmin 1vmin 1vmin;
 }
